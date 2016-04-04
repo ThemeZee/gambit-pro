@@ -1,12 +1,12 @@
 <?php
 /***
- * zeeDynamic Pro Settings Class
+ * Gambit Pro Settings Class
  *
  * Registers all plugin settings with the WordPress Settings API.
  * Handles license key activation with the ThemeZee Store API.
  *
  * @link https://codex.wordpress.org/Settings_API
- * @package zeeDynamic Pro
+ * @package Gambit Pro
  */
 
 // Exit if accessed directly
@@ -14,13 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 // Use class to avoid namespace collisions
-if ( ! class_exists( 'zeeDynamic_Pro_Settings' ) ) :
+if ( ! class_exists( 'Gambit_Pro_Settings' ) ) :
 
-class zeeDynamic_Pro_Settings {
+class Gambit_Pro_Settings {
 	/** Singleton *************************************************************/
 
 	/**
-	 * @var instance The one true zeeDynamic_Pro_Settings instance
+	 * @var instance The one true Gambit_Pro_Settings instance
 	 */
 	private static $instance;
 	
@@ -32,7 +32,7 @@ class zeeDynamic_Pro_Settings {
 	/**
      * Creates or returns an instance of this class.
      *
-     * @return zeeDynamic_Pro_Settings A single instance of this class.
+     * @return Gambit_Pro_Settings A single instance of this class.
      */
 	public static function instance() {
  
@@ -59,7 +59,7 @@ class zeeDynamic_Pro_Settings {
 		$this->options = wp_parse_args( 
 			
 			// Get saved theme options from WP database
-			get_option( 'zeedynamic_pro_settings' , array() ), 
+			get_option( 'gambit_pro_settings' , array() ), 
 			
 			// Merge with Default Settings if setting was not saved yet
 			$this->default_settings()
@@ -124,12 +124,12 @@ class zeeDynamic_Pro_Settings {
 	function register_settings() {
 
 		// Make sure that options exist in database
-		if ( false == get_option( 'zeedynamic_pro_settings' ) ) {
-			add_option( 'zeedynamic_pro_settings' );
+		if ( false == get_option( 'gambit_pro_settings' ) ) {
+			add_option( 'gambit_pro_settings' );
 		}
 		
 		// Add Sections
-		add_settings_section( 'zeedynamic_pro_settings_license', esc_html__( 'License', 'zeedynamic-pro' ), array( $this, 'license_section_intro' ), 'zeedynamic_pro_settings' );
+		add_settings_section( 'gambit_pro_settings_license', esc_html__( 'License', 'gambit-pro' ), array( $this, 'license_section_intro' ), 'gambit_pro_settings' );
 		
 		// Add Settings
 		foreach ( $this->get_registered_settings() as $key => $option ) :
@@ -138,11 +138,11 @@ class zeeDynamic_Pro_Settings {
 			$section = isset( $option['section'] ) ? $option['section'] : 'widgets';
 			
 			add_settings_field(
-				'zeedynamic_pro_settings[' . $key . ']',
+				'gambit_pro_settings[' . $key . ']',
 				$name,
 				is_callable( array( $this, $option[ 'type' ] . '_callback' ) ) ? array( $this, $option[ 'type' ] . '_callback' ) : array( $this, 'missing_callback' ),
-				'zeedynamic_pro_settings',
-				'zeedynamic_pro_settings_' . $section,
+				'gambit_pro_settings',
+				'gambit_pro_settings_' . $section,
 				array(
 					'id'      => $key,
 					'name'    => isset( $option['name'] ) ? $option['name'] : null,
@@ -159,7 +159,7 @@ class zeeDynamic_Pro_Settings {
 		endforeach;
 
 		// Creates our settings in the options table
-		register_setting( 'zeedynamic_pro_settings', 'zeedynamic_pro_settings', array( $this, 'sanitize_settings' ) );
+		register_setting( 'gambit_pro_settings', 'gambit_pro_settings', array( $this, 'sanitize_settings' ) );
 	}
 
 	
@@ -169,7 +169,7 @@ class zeeDynamic_Pro_Settings {
 	 * @return void
 	*/
 	function general_section_intro() {
-		esc_html_e( 'Configure the zeeDynamic Pro Addon.', 'zeedynamic-pro');
+		esc_html_e( 'Configure the Gambit Pro Addon.', 'gambit-pro');
 	}
 	
 	
@@ -179,7 +179,7 @@ class zeeDynamic_Pro_Settings {
 	 * @return void
 	*/
 	function license_section_intro() {
-		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'zeedynamic-pro' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=zeedynamic-pro&utm_content=support' );
+		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'gambit-pro' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=gambit-pro&utm_content=support' );
 
 	}
 	
@@ -195,7 +195,7 @@ class zeeDynamic_Pro_Settings {
 			return $input;
 		}
 
-		$saved    = get_option( 'zeedynamic_pro_settings', array() );
+		$saved    = get_option( 'gambit_pro_settings', array() );
 		if( ! is_array( $saved ) ) {
 			$saved = array();
 		}
@@ -280,14 +280,14 @@ class zeeDynamic_Pro_Settings {
 
 		$settings = array(
 			'license_key' => array(
-				'name' => esc_html__( 'License Key', 'zeedynamic-pro' ),
+				'name' => esc_html__( 'License Key', 'gambit-pro' ),
 				'section' => 'license',
 				'type' => 'license',
 				'default' => ''
 			)
 		);
 
-		return apply_filters( 'zeedynamic_pro_settings', $settings );
+		return apply_filters( 'gambit_pro_settings', $settings );
 	}
 
 	
@@ -297,14 +297,14 @@ class zeeDynamic_Pro_Settings {
 	 * Renders checkboxes.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function checkbox_callback( $args ) {
 
 		$checked = isset($this->options[$args['id']]) ? checked(1, $this->options[$args['id']], false) : '';
-		$html = '<input type="checkbox" id="zeedynamic_pro_settings[' . $args['id'] . ']" name="zeedynamic_pro_settings[' . $args['id'] . ']" value="1" ' . $checked . '/>';
-		$html .= '<label for="zeedynamic_pro_settings[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+		$html = '<input type="checkbox" id="gambit_pro_settings[' . $args['id'] . ']" name="gambit_pro_settings[' . $args['id'] . ']" value="1" ' . $checked . '/>';
+		$html .= '<label for="gambit_pro_settings[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 		echo $html;
 	}
@@ -316,7 +316,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders multiple checkboxes.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function multicheck_callback( $args ) {
@@ -324,8 +324,8 @@ class zeeDynamic_Pro_Settings {
 		if ( ! empty( $args['options'] ) ) :
 			foreach( $args['options'] as $key => $option ) {
 				$checked = isset($this->options[$args['id']][$key]) ? checked(1, $this->options[$args['id']][$key], false) : '';
-				echo '<input name="zeedynamic_pro_settings[' . $args['id'] . '][' . $key . ']" id="zeedynamic_pro_settings[' . $args['id'] . '][' . $key . ']" type="checkbox" value="1" ' . $checked . '/>&nbsp;';
-				echo '<label for="zeedynamic_pro_settings[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
+				echo '<input name="gambit_pro_settings[' . $args['id'] . '][' . $key . ']" id="gambit_pro_settings[' . $args['id'] . '][' . $key . ']" type="checkbox" value="1" ' . $checked . '/>&nbsp;';
+				echo '<label for="gambit_pro_settings[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
 			}
 		endif;
 		echo '<p class="description">' . $args['desc'] . '</p>';
@@ -338,7 +338,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders text fields.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function text_callback( $args ) {
@@ -349,7 +349,7 @@ class zeeDynamic_Pro_Settings {
 			$value = isset( $args['default'] ) ? $args['default'] : '';
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<input type="text" class="' . $size . '-text" id="zeedynamic_pro_settings[' . $args['id'] . ']" name="zeedynamic_pro_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
+		$html = '<input type="text" class="' . $size . '-text" id="gambit_pro_settings[' . $args['id'] . ']" name="gambit_pro_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
 		$html .= '<p class="description">'  . $args['desc'] . '</p>';
 
 		echo $html;
@@ -362,7 +362,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders radio boxes.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function radio_callback( $args ) {
@@ -376,8 +376,8 @@ class zeeDynamic_Pro_Settings {
 				elseif( isset( $args['default'] ) && $args['default'] == $key && ! isset( $this->options[ $args['id'] ] ) )
 					$checked = true;
 
-				echo '<input name="zeedynamic_pro_settings[' . $args['id'] . ']"" id="zeedynamic_pro_settings[' . $args['id'] . '][' . $key . ']" type="radio" value="' . $key . '" ' . checked(true, $checked, false) . '/>&nbsp;';
-				echo '<label for="zeedynamic_pro_settings[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
+				echo '<input name="gambit_pro_settings[' . $args['id'] . ']"" id="gambit_pro_settings[' . $args['id'] . '][' . $key . ']" type="radio" value="' . $key . '" ' . checked(true, $checked, false) . '/>&nbsp;';
+				echo '<label for="gambit_pro_settings[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
 			endforeach;
 		endif;
 		echo '<p class="description">' . $args['desc'] . '</p>';
@@ -390,7 +390,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders license key fields.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function license_callback( $args ) {
@@ -401,22 +401,22 @@ class zeeDynamic_Pro_Settings {
 			$value = isset( $args['default'] ) ? $args['default'] : '';
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<input type="text" class="' . $size . '-text" id="zeedynamic_pro_settings[' . $args['id'] . ']" name="zeedynamic_pro_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/><br/><br/>';
+		$html = '<input type="text" class="' . $size . '-text" id="gambit_pro_settings[' . $args['id'] . ']" name="gambit_pro_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/><br/><br/>';
 		$license_status = $this->get( 'license_status' );
 		$license_key = ! empty( $value ) ? $value : false;
 
 		if( 'valid' === $license_status && ! empty( $license_key ) ) {
-			$html .= '<input type="submit" class="button" name="zeedynamic_pro_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'zeedynamic-pro' ) . '"/>';
-			$html .= '<span style="display: inline-block; padding: 5px; color: green;">&nbsp;' . esc_html__( 'Your license is valid!', 'zeedynamic-pro' ) . '</span>';
+			$html .= '<input type="submit" class="button" name="gambit_pro_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'gambit-pro' ) . '"/>';
+			$html .= '<span style="display: inline-block; padding: 5px; color: green;">&nbsp;' . esc_html__( 'Your license is valid!', 'gambit-pro' ) . '</span>';
 		} elseif( 'expired' === $license_status && ! empty( $license_key ) ) {
-			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => ZEE_DYNAMIC_PRO_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
-			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="button-primary">' . esc_html__( 'Renew Your License', 'zeedynamic-pro' ) . '</a>';
-			$html .= '<br/><span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'zeedynamic-pro' ) . '</span>';
+			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => GAMBIT_PRO_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
+			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="button-primary">' . esc_html__( 'Renew Your License', 'gambit-pro' ) . '</a>';
+			$html .= '<br/><span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'gambit-pro' ) . '</span>';
 		} elseif( 'invalid' === $license_status && ! empty( $license_key ) ) {
-			$html .= '<input type="submit" class="button" name="zeedynamic_pro_activate_license" value="' . esc_attr__( 'Activate License', 'zeedynamic-pro' ) . '"/>';
-			$html .= '<span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license is invalid!', 'zeedynamic-pro' ) . '</span>';
+			$html .= '<input type="submit" class="button" name="gambit_pro_activate_license" value="' . esc_attr__( 'Activate License', 'gambit-pro' ) . '"/>';
+			$html .= '<span style="display: inline-block; padding: 5px; color: red;">&nbsp;' . esc_html__( 'Your license is invalid!', 'gambit-pro' ) . '</span>';
 		} else {
-			$html .= '<input type="submit" class="button" name="zeedynamic_pro_activate_license" value="' . esc_attr__( 'Activate License', 'zeedynamic-pro' ) . '"/>';
+			$html .= '<input type="submit" class="button" name="gambit_pro_activate_license" value="' . esc_attr__( 'Activate License', 'gambit-pro' ) . '"/>';
 		}
 
 		$html .= '<p class="description">'  . $args['desc'] . '</p>';
@@ -431,7 +431,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders number fields.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function number_callback( $args ) {
@@ -446,7 +446,7 @@ class zeeDynamic_Pro_Settings {
 		$step = isset( $args['step'] ) ? $args['step'] : 1;
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<input type="number" step="' . esc_attr( $step ) . '" max="' . esc_attr( $max ) . '" min="' . esc_attr( $min ) . '" class="' . $size . '-text" id="zeedynamic_pro_settings[' . $args['id'] . ']" name="zeedynamic_pro_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
+		$html = '<input type="number" step="' . esc_attr( $step ) . '" max="' . esc_attr( $max ) . '" min="' . esc_attr( $min ) . '" class="' . $size . '-text" id="gambit_pro_settings[' . $args['id'] . ']" name="gambit_pro_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
 		$html .= '<p class="description">'  . $args['desc'] . '</p>';
 
 		echo $html;
@@ -459,7 +459,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders textarea fields.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function textarea_callback( $args ) {
@@ -470,7 +470,7 @@ class zeeDynamic_Pro_Settings {
 			$value = isset( $args['default'] ) ? $args['default'] : '';
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<textarea class="' . $size . '-text" cols="20" rows="5" id="zeedynamic_pro_settings_' . $args['id'] . '" name="zeedynamic_pro_settings[' . $args['id'] . ']">' . esc_textarea( stripslashes( $value ) ) . '</textarea>';
+		$html = '<textarea class="' . $size . '-text" cols="20" rows="5" id="gambit_pro_settings_' . $args['id'] . '" name="gambit_pro_settings[' . $args['id'] . ']">' . esc_textarea( stripslashes( $value ) ) . '</textarea>';
 		$html .= '<p class="description">'  . $args['desc'] . '</p>';
 
 		echo $html;
@@ -483,7 +483,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders textarea fields which allow HTML code.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function textarea_html_callback( $args ) {
@@ -494,7 +494,7 @@ class zeeDynamic_Pro_Settings {
 			$value = isset( $args['default'] ) ? $args['default'] : '';
 
 		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<textarea class="' . $size . '-text" cols="20" rows="5" id="zeedynamic_pro_settings_' . $args['id'] . '" name="zeedynamic_pro_settings[' . $args['id'] . ']">' . esc_textarea( stripslashes( $value ) ) . '</textarea>';
+		$html = '<textarea class="' . $size . '-text" cols="20" rows="5" id="gambit_pro_settings_' . $args['id'] . '" name="gambit_pro_settings[' . $args['id'] . ']">' . esc_textarea( stripslashes( $value ) ) . '</textarea>';
 		$html .= '<p class="description">'  . $args['desc'] . '</p>';
 
 		echo $html;
@@ -510,7 +510,7 @@ class zeeDynamic_Pro_Settings {
 	 * @return void
 	 */
 	function missing_callback($args) {
-		printf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'zeedynamic-pro' ), $args['id'] );
+		printf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'gambit-pro' ), $args['id'] );
 	}
 
 	/**
@@ -519,7 +519,7 @@ class zeeDynamic_Pro_Settings {
 	 * Renders select fields.
 	 *
 	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the zeeDynamic Pro Options
+	 * @global $this->options Array of all the Gambit Pro Options
 	 * @return void
 	 */
 	function select_callback($args) {
@@ -529,7 +529,7 @@ class zeeDynamic_Pro_Settings {
 		else
 			$value = isset( $args['default'] ) ? $args['default'] : '';
 
-		$html = '<select id="zeedynamic_pro_settings[' . $args['id'] . ']" name="zeedynamic_pro_settings[' . $args['id'] . ']"/>';
+		$html = '<select id="gambit_pro_settings[' . $args['id'] . ']" name="gambit_pro_settings[' . $args['id'] . ']"/>';
 
 		foreach ( $args['options'] as $option => $name ) :
 			$selected = selected( $option, $value, false );
@@ -550,18 +550,18 @@ class zeeDynamic_Pro_Settings {
 	*/
 	public function activate_license() {
 		
-		if( ! isset( $_POST['zeedynamic_pro_settings'] ) )
+		if( ! isset( $_POST['gambit_pro_settings'] ) )
 			return;
 
-		if( ! isset( $_POST['zeedynamic_pro_activate_license'] ) )
+		if( ! isset( $_POST['gambit_pro_activate_license'] ) )
 			return;
 
-		if( ! isset( $_POST['zeedynamic_pro_settings']['license_key'] ) )
+		if( ! isset( $_POST['gambit_pro_settings']['license_key'] ) )
 			return;
 
 		// retrieve the license from the database
 		$status  = $this->get( 'license_status' );
-		$license = trim( $_POST['zeedynamic_pro_settings']['license_key'] );
+		$license = trim( $_POST['gambit_pro_settings']['license_key'] );
 
 		if( 'valid' == $status )
 			return; // license already activated and valid
@@ -570,13 +570,13 @@ class zeeDynamic_Pro_Settings {
 		$api_params = array(
 			'edd_action'=> 'activate_license',
 			'license' 	=> $license,
-			'item_name' => urlencode( ZEE_DYNAMIC_PRO_NAME ),
-			'item_id'   => ZEE_DYNAMIC_PRO_PRODUCT_ID,
+			'item_name' => urlencode( GAMBIT_PRO_NAME ),
+			'item_id'   => GAMBIT_PRO_PRODUCT_ID,
 			'url'       => home_url()
 		);
 		
 		// Call the custom API.
-		$response = wp_remote_post( ZEE_DYNAMIC_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
+		$response = wp_remote_post( GAMBIT_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
 
 		// make sure the response came back okay
 		if ( is_wp_error( $response ) )
@@ -589,9 +589,9 @@ class zeeDynamic_Pro_Settings {
 
 		$options['license_status'] = $license_data->license;
 
-		update_option( 'zeedynamic_pro_settings', $options );
+		update_option( 'gambit_pro_settings', $options );
 
-		delete_transient( 'zeedynamic_pro_license_check' );
+		delete_transient( 'gambit_pro_license_check' );
 
 	}
 	
@@ -602,28 +602,28 @@ class zeeDynamic_Pro_Settings {
 	*/
 	public function deactivate_license() {
 
-		if( ! isset( $_POST['zeedynamic_pro_settings'] ) )
+		if( ! isset( $_POST['gambit_pro_settings'] ) )
 			return;
 
-		if( ! isset( $_POST['zeedynamic_pro_deactivate_license'] ) )
+		if( ! isset( $_POST['gambit_pro_deactivate_license'] ) )
 			return;
 
-		if( ! isset( $_POST['zeedynamic_pro_settings']['license_key'] ) )
+		if( ! isset( $_POST['gambit_pro_settings']['license_key'] ) )
 			return;
 
 		// retrieve the license from the database
-		$license = trim( $_POST['zeedynamic_pro_settings']['license_key'] );
+		$license = trim( $_POST['gambit_pro_settings']['license_key'] );
 
 		// data to send in our API request
 		$api_params = array(
 			'edd_action'=> 'deactivate_license',
 			'license' 	=> $license,
-			'item_name' => urlencode( ZEE_DYNAMIC_PRO_NAME ),
+			'item_name' => urlencode( GAMBIT_PRO_NAME ),
 			'url'       => home_url()
 		);
 		
 		// Call the custom API.
-		$response = wp_remote_post( ZEE_DYNAMIC_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
+		$response = wp_remote_post( GAMBIT_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
 
 		// make sure the response came back okay
 		if ( is_wp_error( $response ) )
@@ -633,9 +633,9 @@ class zeeDynamic_Pro_Settings {
 
 		$options['license_status'] = 0;
 
-		update_option( 'zeedynamic_pro_settings', $options );
+		update_option( 'gambit_pro_settings', $options );
 
-		delete_transient( 'zeedynamic_pro_license_check' );
+		delete_transient( 'gambit_pro_license_check' );
 
 	}
 
@@ -646,11 +646,11 @@ class zeeDynamic_Pro_Settings {
 	*/
 	public function check_license() {
 
-		if( ! empty( $_POST['zeedynamic_pro_settings'] ) ) {
+		if( ! empty( $_POST['gambit_pro_settings'] ) ) {
 			return; // Don't fire when saving settings
 		}
 
-		$status = get_transient( 'zeedynamic_pro_license_check' );
+		$status = get_transient( 'gambit_pro_license_check' );
 
 		// Run the license check a maximum of once per day
 		if( false === $status ) {
@@ -659,12 +659,12 @@ class zeeDynamic_Pro_Settings {
 			$api_params = array(
 				'edd_action'=> 'check_license',
 				'license' 	=> $this->get( 'license_key' ),
-				'item_name' => urlencode( ZEE_DYNAMIC_PRO_NAME ),
+				'item_name' => urlencode( GAMBIT_PRO_NAME ),
 				'url'       => home_url()
 			);
 			
 			// Call the custom API.
-			$response = wp_remote_post( ZEE_DYNAMIC_PRO_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
+			$response = wp_remote_post( GAMBIT_PRO_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
 
 			// make sure the response came back okay
 			if ( is_wp_error( $response ) )
@@ -676,9 +676,9 @@ class zeeDynamic_Pro_Settings {
 
 			$options['license_status'] = $license_data->license;
 
-			update_option( 'zeedynamic_pro_settings', $options );
+			update_option( 'gambit_pro_settings', $options );
 
-			set_transient( 'zeedynamic_pro_license_check', $license_data->license, DAY_IN_SECONDS );
+			set_transient( 'gambit_pro_license_check', $license_data->license, DAY_IN_SECONDS );
 
 			$status = $license_data->license;
 
@@ -700,6 +700,6 @@ class zeeDynamic_Pro_Settings {
 }
 
 // Run Setting Class
-zeeDynamic_Pro_Settings::instance();
+Gambit_Pro_Settings::instance();
 
 endif;

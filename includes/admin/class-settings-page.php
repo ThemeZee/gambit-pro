@@ -1,10 +1,10 @@
 <?php
 /***
- * zeeDynamic Pro Settings Page Class
+ * Gambit Pro Settings Page Class
  *
  * Adds a new tab on the themezee plugins page and displays the settings page.
  *
- * @package zeeDynamic Pro
+ * @package Gambit Pro
  */
  
 // Exit if accessed directly
@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 // Use class to avoid namespace collisions
-if ( ! class_exists('zeeDynamic_Pro_Settings_Page') ) :
+if ( ! class_exists('Gambit_Pro_Settings_Page') ) :
 
-class zeeDynamic_Pro_Settings_Page {
+class Gambit_Pro_Settings_Page {
 
 	/**
 	 * Setup the Settings Page class
@@ -35,16 +35,16 @@ class zeeDynamic_Pro_Settings_Page {
 	*/
 	static function add_settings_page() {
 	
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 			
 		add_theme_page(
-			esc_html__( 'Pro Version', 'zeedynamic-pro' ),
-			esc_html__( 'Pro Version', 'zeedynamic-pro' ),
+			esc_html__( 'Pro Version', 'gambit-pro' ),
+			esc_html__( 'Pro Version', 'gambit-pro' ),
 			'manage_options',
-			'zeedynamic-pro',
+			'gambit-pro',
 			array( __CLASS__, 'display_settings_page' )
 		);
 		
@@ -60,15 +60,15 @@ class zeeDynamic_Pro_Settings_Page {
 		ob_start();
 	?>
 
-		<div id="zeedynamic-pro-settings" class="zeedynamic-pro-settings-wrap wrap">
+		<div id="gambit-pro-settings" class="gambit-pro-settings-wrap wrap">
 			
-			<h1><?php esc_html_e( 'zeeDynamic Pro', 'zeedynamic-pro' ); ?></h1>
+			<h1><?php esc_html_e( 'Gambit Pro', 'gambit-pro' ); ?></h1>
 			<?php settings_errors(); ?>
 			
-			<form class="zeedynamic-pro-settings-form" method="post" action="options.php">
+			<form class="gambit-pro-settings-form" method="post" action="options.php">
 				<?php
-					settings_fields( 'zeedynamic_pro_settings' );
-					do_settings_sections( 'zeedynamic_pro_settings' );
+					settings_fields( 'gambit_pro_settings' );
+					do_settings_sections( 'gambit_pro_settings' );
 					submit_button();
 				?>
 			</form>
@@ -80,7 +80,7 @@ class zeeDynamic_Pro_Settings_Page {
 	
 }
 
-// Run zeeDynamic Pro Settings Page Class
-zeeDynamic_Pro_Settings_Page::setup();
+// Run Gambit Pro Settings Page Class
+Gambit_Pro_Settings_Page::setup();
 
 endif;

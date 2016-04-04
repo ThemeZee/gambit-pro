@@ -5,10 +5,10 @@
  * Display the latest posts from a selected category in a single layout. 
  * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
  *
- * @package zeeDynamic
+ * @package Gambit
  */
 
-class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
+class Gambit_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 
 	/**
 	 * Widget Constructor
@@ -17,11 +17,11 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		
 		// Setup Widget
 		parent::__construct(
-			'zeedynamic-magazine-posts-single', // ID
-			sprintf( esc_html__( 'Magazine Posts: Single (%s)', 'zeedynamic-pro' ), 'zeeDynamic Pro' ), // Name
+			'gambit-magazine-posts-single', // ID
+			sprintf( esc_html__( 'Magazine Posts: Single (%s)', 'gambit-pro' ), 'Gambit Pro' ), // Name
 			array( 
-				'classname' => 'zeedynamic_magazine_posts_single', 
-				'description' => esc_html__( 'Displays a single post from a selected category. Please use this widget ONLY in the Magazine Homepage widget area.', 'zeedynamic-pro' ) 
+				'classname' => 'gambit_magazine_posts_single', 
+				'description' => esc_html__( 'Displays a single post from a selected category. Please use this widget ONLY in the Magazine Homepage widget area.', 'gambit-pro' ) 
 			) // Args
 		);
 
@@ -65,7 +65,7 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 				
 		// Get Widget Object Cache
 		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'widget_zeedynamic_magazine_posts_single', 'widget' );
+			$cache = wp_cache_get( 'widget_gambit_magazine_posts_single', 'widget' );
 		}
 		if ( ! is_array( $cache ) ) {
 			$cache = array();
@@ -104,7 +104,7 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		// Set Cache
 		if ( ! $this->is_preview() ) {
 			$cache[ $this->id ] = ob_get_flush();
-			wp_cache_set( 'widget_zeedynamic_magazine_posts_single', $cache, 'widget' );
+			wp_cache_set( 'widget_gambit_magazine_posts_single', $cache, 'widget' );
 		} else {
 			ob_end_flush();
 		}
@@ -137,7 +137,7 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		if( $posts_query->have_posts() ) :
 		
 			// Limit the number of words for the excerpt
-			add_filter( 'excerpt_length', 'zeedynamic_magazine_posts_excerpt_length' );
+			add_filter( 'excerpt_length', 'gambit_magazine_posts_excerpt_length' );
 			
 			// Display Posts
 			while( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
@@ -159,7 +159,7 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 					<div class="entry-content clearfix">
 						
 						<?php the_excerpt(); ?>
-						<?php zeedynamic_more_link(); ?>
+						<?php gambit_more_link(); ?>
 					
 					</div><!-- .entry-content -->
 
@@ -169,7 +169,7 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 			endwhile;
 			
 			// Remove excerpt filter
-			remove_filter('excerpt_length', 'zeedynamic_magazine_posts_excerpt_length');
+			remove_filter('excerpt_length', 'gambit_magazine_posts_excerpt_length');
 			
 		endif;
 		
@@ -187,19 +187,19 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		
 		if( true == $settings['meta_date'] ) {
 		
-			$postmeta .= zeedynamic_meta_date();
+			$postmeta .= gambit_meta_date();
 			
 		}
 		
 		if( true == $settings['meta_author'] ) {
 		
-			$postmeta .= zeedynamic_meta_author();
+			$postmeta .= gambit_meta_author();
 			
 		}
 		
 		if( true == $settings['meta_category'] ) {
 		
-			$postmeta .= zeedynamic_meta_category();
+			$postmeta .= gambit_meta_category();
 			
 		}
 		
@@ -226,7 +226,7 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 			if( $settings['category'] > 0 ) : 
 			
 				// Set Link URL and Title for Category
-				$link_title = sprintf( esc_html__( 'View all posts from category %s', 'zeedynamic-pro' ), get_cat_name( $settings['category'] ) );
+				$link_title = sprintf( esc_html__( 'View all posts from category %s', 'gambit-pro' ), get_cat_name( $settings['category'] ) );
 				$link_url = esc_url( get_category_link( $settings['category'] ) );
 				
 				// Display Widget Title with link to category archive
@@ -279,16 +279,16 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		$settings = wp_parse_args( $instance, $this->default_settings() );
 ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e( 'Title:', 'zeedynamic-pro' ); ?>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e( 'Title:', 'gambit-pro' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $settings['title']; ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('category'); ?>"><?php esc_html_e( 'Category:', 'zeedynamic-pro' ); ?></label><br/>
+			<label for="<?php echo $this->get_field_id('category'); ?>"><?php esc_html_e( 'Category:', 'gambit-pro' ); ?></label><br/>
 			<?php // Display Category Select
 				$args = array(
-					'show_option_all'    => esc_html__( 'All Categories', 'zeedynamic-pro' ),
+					'show_option_all'    => esc_html__( 'All Categories', 'gambit-pro' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $settings['category'],
@@ -302,21 +302,21 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'meta_date' ); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $settings['meta_date'] ) ; ?> id="<?php echo $this->get_field_id( 'meta_date' ); ?>" name="<?php echo $this->get_field_name( 'meta_date' ); ?>" />
-				<?php esc_html_e( 'Display post date', 'zeedynamic-pro' ); ?>
+				<?php esc_html_e( 'Display post date', 'gambit-pro' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id( 'meta_author' ); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $settings['meta_author'] ) ; ?> id="<?php echo $this->get_field_id( 'meta_author' ); ?>" name="<?php echo $this->get_field_name( 'meta_author' ); ?>" />
-				<?php esc_html_e( 'Display post author', 'zeedynamic-pro' ); ?>
+				<?php esc_html_e( 'Display post author', 'gambit-pro' ); ?>
 			</label>
 		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id( 'meta_category' ); ?>">
 				<input class="checkbox" type="checkbox" <?php checked( $settings['meta_category'] ) ; ?> id="<?php echo $this->get_field_id( 'meta_category' ); ?>" name="<?php echo $this->get_field_name( 'meta_category' ); ?>" />
-				<?php esc_html_e( 'Display post category', 'zeedynamic-pro' ); ?>
+				<?php esc_html_e( 'Display post category', 'gambit-pro' ); ?>
 			</label>
 		</p>
 		
@@ -329,17 +329,17 @@ class zeeDynamic_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 	 */
 	public function delete_widget_cache() {
 		
-		wp_cache_delete( 'widget_zeedynamic_magazine_posts_single', 'widget' );
+		wp_cache_delete( 'widget_gambit_magazine_posts_single', 'widget' );
 		
 	}
 	
 }
 
 // Register Widget
-add_action( 'widgets_init', 'zeedynamic_pro_register_magazine_posts_single_widget' );
+add_action( 'widgets_init', 'gambit_pro_register_magazine_posts_single_widget' );
 
-function zeedynamic_pro_register_magazine_posts_single_widget() {
+function gambit_pro_register_magazine_posts_single_widget() {
 
-	register_widget( 'zeeDynamic_Pro_Magazine_Posts_Single_Widget' );
+	register_widget( 'Gambit_Pro_Magazine_Posts_Single_Widget' );
 	
 }

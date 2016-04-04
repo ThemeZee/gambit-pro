@@ -4,7 +4,7 @@
  *
  * Adds color settings to Customizer and generates color CSS code
  *
- * @package zeeDynamic Pro
+ * @package Gambit Pro
  */
 
 // Exit if accessed directly
@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 // Use class to avoid namespace collisions
-if ( ! class_exists( 'zeeDynamic_Pro_Custom_Colors' ) ) :
+if ( ! class_exists( 'Gambit_Pro_Custom_Colors' ) ) :
 
-class zeeDynamic_Pro_Custom_Colors {
+class Gambit_Pro_Custom_Colors {
 
 	/**
 	 * Custom Colors Setup
@@ -23,13 +23,13 @@ class zeeDynamic_Pro_Custom_Colors {
 	*/
 	static function setup() {
 		
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 		
 		// Add Custom Color CSS code to custom stylesheet output
-		add_filter( 'zeedynamic_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) ); 
+		add_filter( 'gambit_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) ); 
 		
 		// Add Custom Color Settings
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -43,10 +43,10 @@ class zeeDynamic_Pro_Custom_Colors {
 	static function custom_colors_css( $custom_css ) { 
 		
 		// Get Theme Options from Database
-		$theme_options = zeeDynamic_Pro_Customizer::get_theme_options();
+		$theme_options = Gambit_Pro_Customizer::get_theme_options();
 		
 		// Get Default Fonts from settings
-		$default_options = zeeDynamic_Pro_Customizer::get_default_options();
+		$default_options = Gambit_Pro_Customizer::get_default_options();
 
 		// Set Color CSS Variable
 		$color_css = '';
@@ -304,18 +304,18 @@ class zeeDynamic_Pro_Custom_Colors {
 	static function color_settings( $wp_customize ) {
 
 		// Add Section for Theme Colors
-		$wp_customize->add_section( 'zeedynamic_pro_section_colors', array(
-			'title'    => __( 'Theme Colors', 'zeedynamic-pro' ),
+		$wp_customize->add_section( 'gambit_pro_section_colors', array(
+			'title'    => __( 'Theme Colors', 'gambit-pro' ),
 			'priority' => 60,
-			'panel' => 'zeedynamic_options_panel' 
+			'panel' => 'gambit_options_panel' 
 			)
 		);
 		
 		// Get Default Colors from settings
-		$default_options = zeeDynamic_Pro_Customizer::get_default_options();
+		$default_options = Gambit_Pro_Customizer::get_default_options();
 		
 		// Add Top Navigation Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[top_navi_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[top_navi_color]', array(
 			'default'           => $default_options['top_navi_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -323,16 +323,16 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[top_navi_color]', array(
-				'label'      => _x( 'Top Navigation', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[top_navi_color]',
+			$wp_customize, 'gambit_theme_options[top_navi_color]', array(
+				'label'      => _x( 'Top Navigation', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[top_navi_color]',
 				'priority' => 1
 			) ) 
 		);
 		
 		// Add Navigation Primary Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[navi_primary_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[navi_primary_color]', array(
 			'default'           => $default_options['navi_primary_color'],
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
@@ -340,16 +340,16 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[navi_primary_color]', array(
-				'label'      => _x( 'Navigation (primary)', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[navi_primary_color]',
+			$wp_customize, 'gambit_theme_options[navi_primary_color]', array(
+				'label'      => _x( 'Navigation (primary)', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[navi_primary_color]',
 				'priority' => 2
 			) ) 
 		);
 		
 		// Add Navigation Secondary Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[navi_secondary_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[navi_secondary_color]', array(
 			'default'           => $default_options['navi_secondary_color'],
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
@@ -357,16 +357,16 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[navi_secondary_color]', array(
-				'label'      => _x( 'Navigation (secondary)', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[navi_secondary_color]',
+			$wp_customize, 'gambit_theme_options[navi_secondary_color]', array(
+				'label'      => _x( 'Navigation (secondary)', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[navi_secondary_color]',
 				'priority' => 3
 			) ) 
 		);
 		
 		// Add Post Primary Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[content_primary_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[content_primary_color]', array(
 			'default'           => $default_options['content_primary_color'],
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
@@ -374,16 +374,16 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[content_primary_color]', array(
-				'label'      => _x( 'Content (primary)', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[content_primary_color]',
+			$wp_customize, 'gambit_theme_options[content_primary_color]', array(
+				'label'      => _x( 'Content (primary)', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[content_primary_color]',
 				'priority' => 4
 			) ) 
 		);
 		
 		// Add Link and Button Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[content_secondary_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[content_secondary_color]', array(
 			'default'           => $default_options['content_secondary_color'],
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
@@ -391,16 +391,16 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[content_secondary_color]', array(
-				'label'      => _x( 'Content (secondary)', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[content_secondary_color]',
+			$wp_customize, 'gambit_theme_options[content_secondary_color]', array(
+				'label'      => _x( 'Content (secondary)', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[content_secondary_color]',
 				'priority' => 5
 			) ) 
 		);
 		
 		// Add Footer Widgets Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[footer_area_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[footer_area_color]', array(
 			'default'           => $default_options['footer_area_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -408,16 +408,16 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[footer_area_color]', array(
-				'label'      => _x( 'Footer', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[footer_area_color]',
+			$wp_customize, 'gambit_theme_options[footer_area_color]', array(
+				'label'      => _x( 'Footer', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[footer_area_color]',
 				'priority' => 7
 			) ) 
 		);
 		
 		// Add Footer Line Color setting
-		$wp_customize->add_setting( 'zeedynamic_theme_options[footer_navi_color]', array(
+		$wp_customize->add_setting( 'gambit_theme_options[footer_navi_color]', array(
 			'default'           => $default_options['footer_navi_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -425,10 +425,10 @@ class zeeDynamic_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control( 
-			$wp_customize, 'zeedynamic_theme_options[footer_navi_color]', array(
-				'label'      => _x( 'Footer Navigation', 'color setting', 'zeedynamic-pro' ),
-				'section'    => 'zeedynamic_pro_section_colors',
-				'settings'   => 'zeedynamic_theme_options[footer_navi_color]',
+			$wp_customize, 'gambit_theme_options[footer_navi_color]', array(
+				'label'      => _x( 'Footer Navigation', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[footer_navi_color]',
 				'priority' 	=> 8
 			) ) 
 		);
@@ -438,6 +438,6 @@ class zeeDynamic_Pro_Custom_Colors {
 }
 
 // Run Class
-add_action( 'init', array( 'zeeDynamic_Pro_Custom_Colors', 'setup' ) );
+add_action( 'init', array( 'Gambit_Pro_Custom_Colors', 'setup' ) );
 
 endif;

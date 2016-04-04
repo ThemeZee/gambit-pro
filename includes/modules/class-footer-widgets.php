@@ -2,18 +2,18 @@
 /***
  * Footer Widgets
  *
- * Registers footer widget areas and hooks into the zeeDynamic theme to display widgets
+ * Registers footer widget areas and hooks into the Gambit theme to display widgets
  *
- * @package zeeDynamic Pro
+ * @package Gambit Pro
  */
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Use class to avoid namespace collisions
-if ( ! class_exists( 'zeeDynamic_Pro_Footer_Widgets' ) ) :
+if ( ! class_exists( 'Gambit_Pro_Footer_Widgets' ) ) :
 
-class zeeDynamic_Pro_Footer_Widgets {
+class Gambit_Pro_Footer_Widgets {
 
 	/**
 	 * Footer Widgets Setup
@@ -22,20 +22,20 @@ class zeeDynamic_Pro_Footer_Widgets {
 	*/
 	static function setup() {
 
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 		
 		// Display footer widgets
-		add_action( 'zeedynamic_before_footer', array( __CLASS__, 'display_widgets' ) );
+		add_action( 'gambit_before_footer', array( __CLASS__, 'display_widgets' ) );
 	
 	}
 	
 	/**
 	 * Displays Footer Widgets
 	 *
-	 * Hooks into the zeedynamic_before_footer action hook in footer area.
+	 * Hooks into the gambit_before_footer action hook in footer area.
 	 */
 	static function display_widgets() {
 		
@@ -85,16 +85,16 @@ class zeeDynamic_Pro_Footer_Widgets {
 	*/
 	static function register_widgets() {
 	
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 		
 		// Register Footer Left widget area
 		register_sidebar( array(
-			'name' => __( 'Footer Left', 'zeedynamic-pro' ),
+			'name' => __( 'Footer Left', 'gambit-pro' ),
 			'id' => 'footer-left',
-			'description' => __( 'Appears on footer on the left hand side.', 'zeedynamic-pro' ),
+			'description' => __( 'Appears on footer on the left hand side.', 'gambit-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -103,9 +103,9 @@ class zeeDynamic_Pro_Footer_Widgets {
 		
 		// Register Footer Center Left widget area
 		register_sidebar( array(
-			'name' => __( 'Footer Center Left', 'zeedynamic-pro' ),
+			'name' => __( 'Footer Center Left', 'gambit-pro' ),
 			'id' => 'footer-center-left',
-			'description' => __( 'Appears on footer on center left position.', 'zeedynamic-pro' ),
+			'description' => __( 'Appears on footer on center left position.', 'gambit-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -114,9 +114,9 @@ class zeeDynamic_Pro_Footer_Widgets {
 		
 		// Register Footer Center Right widget area
 		register_sidebar( array(
-			'name' => __( 'Footer Center Right', 'zeedynamic-pro' ),
+			'name' => __( 'Footer Center Right', 'gambit-pro' ),
 			'id' => 'footer-center-right',
-			'description' => __( 'Appears on footer on center right position.', 'zeedynamic-pro' ),
+			'description' => __( 'Appears on footer on center right position.', 'gambit-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -125,9 +125,9 @@ class zeeDynamic_Pro_Footer_Widgets {
 		
 		// Register Footer Right widget area
 		register_sidebar( array(
-			'name' => __( 'Footer Right', 'zeedynamic-pro' ),
+			'name' => __( 'Footer Right', 'gambit-pro' ),
 			'id' => 'footer-right',
-			'description' => __( 'Appears on footer on the right hand side.', 'zeedynamic-pro' ),
+			'description' => __( 'Appears on footer on the right hand side.', 'gambit-pro' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -139,9 +139,9 @@ class zeeDynamic_Pro_Footer_Widgets {
 }
 
 // Run Class
-add_action( 'init', array( 'zeeDynamic_Pro_Footer_Widgets', 'setup' ) );
+add_action( 'init', array( 'Gambit_Pro_Footer_Widgets', 'setup' ) );
 
 // Register widgets in backend
-add_action( 'widgets_init', array( 'zeeDynamic_Pro_Footer_Widgets', 'register_widgets' ), 20 );
+add_action( 'widgets_init', array( 'Gambit_Pro_Footer_Widgets', 'register_widgets' ), 20 );
 
 endif;

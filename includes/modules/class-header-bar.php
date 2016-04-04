@@ -2,9 +2,9 @@
 /***
  * Footer Widgets
  *
- * Registers footer widget areas and hooks into the zeeDynamic theme to display widgets
+ * Registers footer widget areas and hooks into the Gambit theme to display widgets
  *
- * @package zeeDynamic Pro
+ * @package Gambit Pro
  */
 
 // Exit if accessed directly
@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 // Use class to avoid namespace collisions
-if ( ! class_exists( 'zeeDynamic_Pro_Header_Bar' ) ) :
+if ( ! class_exists( 'Gambit_Pro_Header_Bar' ) ) :
 
-class zeeDynamic_Pro_Header_Bar {
+class Gambit_Pro_Header_Bar {
 
 	/**
 	 * Footer Widgets Setup
@@ -23,13 +23,13 @@ class zeeDynamic_Pro_Header_Bar {
 	*/
 	static function setup() {
 		
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 		
 		// Display Header Bar
-		add_action( 'zeedynamic_header_bar', array( __CLASS__, 'display_header_bar' ) );
+		add_action( 'gambit_header_bar', array( __CLASS__, 'display_header_bar' ) );
 		
 	}
 	
@@ -93,14 +93,14 @@ class zeeDynamic_Pro_Header_Bar {
 	*/
 	static function register_nav_menus() {
 	
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 		
 		register_nav_menus( array(
-			'secondary' => esc_html__( 'Top Navigation', 'zeedynamic-pro' ),
-			'social' => esc_html__( 'Header Social Icons', 'zeedynamic-pro' ),
+			'secondary' => esc_html__( 'Top Navigation', 'gambit-pro' ),
+			'social' => esc_html__( 'Header Social Icons', 'gambit-pro' ),
 		) );
 		
 	}
@@ -108,9 +108,9 @@ class zeeDynamic_Pro_Header_Bar {
 }
 
 // Run Class
-add_action( 'init', array( 'zeeDynamic_Pro_Header_Bar', 'setup' ) );
+add_action( 'init', array( 'Gambit_Pro_Header_Bar', 'setup' ) );
 
 // Register navigation menus in backend
-add_action( 'after_setup_theme', array( 'zeeDynamic_Pro_Header_Bar', 'register_nav_menus' ), 20 );
+add_action( 'after_setup_theme', array( 'Gambit_Pro_Header_Bar', 'register_nav_menus' ), 20 );
 
 endif;

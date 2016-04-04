@@ -4,7 +4,7 @@
  *
  * Creates a custom stylesheet including the custom color, custom fonts and header spacing CSS code
  *
- * @package zeeDynamic Pro
+ * @package Gambit Pro
  */
 
 // Exit if accessed directly
@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 // Use class to avoid namespace collisions
-if ( ! class_exists( 'zeeDynamic_Pro_Custom_Stylesheet' ) ) :
+if ( ! class_exists( 'Gambit_Pro_Custom_Stylesheet' ) ) :
 
-class zeeDynamic_Pro_Custom_Stylesheet {
+class Gambit_Pro_Custom_Stylesheet {
 
 	/**
 	 * Footer Widgets Setup
@@ -23,8 +23,8 @@ class zeeDynamic_Pro_Custom_Stylesheet {
 	*/
 	static function setup() {
 		
-		// Return early if zeeDynamic Theme is not active
-		if ( ! current_theme_supports( 'zeedynamic-pro'  ) ) {
+		// Return early if Gambit Theme is not active
+		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
 			return;
 		}
 		
@@ -50,7 +50,7 @@ class zeeDynamic_Pro_Custom_Stylesheet {
 			return;
 		}
 
-		wp_enqueue_style( 'zeedynamic-pro-custom-stylesheet', add_query_arg( 'zeedynamic_pro_custom_css', 1, home_url( '/' ) ) );
+		wp_enqueue_style( 'gambit-pro-custom-stylesheet', add_query_arg( 'gambit_pro_custom_css', 1, home_url( '/' ) ) );
 		
 	}
 	
@@ -61,7 +61,7 @@ class zeeDynamic_Pro_Custom_Stylesheet {
 	static function print_custom_css() {
 		
 		// Only print CSS if this is a stylesheet request
-		if( ! isset( $_GET['zeedynamic_pro_custom_css'] ) || intval( $_GET['zeedynamic_pro_custom_css'] ) !== 1 ) {
+		if( ! isset( $_GET['gambit_pro_custom_css'] ) || intval( $_GET['gambit_pro_custom_css'] ) !== 1 ) {
 			return;
 		}
 
@@ -106,13 +106,13 @@ class zeeDynamic_Pro_Custom_Stylesheet {
 	static function get_custom_css() {
 		
 		// Allow other modules to add CSS code per filter
-		return apply_filters( 'zeedynamic_pro_custom_css_stylesheet', '' );
+		return apply_filters( 'gambit_pro_custom_css_stylesheet', '' );
 		
 	}
 
 }
 
 // Run Class
-add_action( 'init', array( 'zeeDynamic_Pro_Custom_Stylesheet', 'setup' ) );
+add_action( 'init', array( 'Gambit_Pro_Custom_Stylesheet', 'setup' ) );
 
 endif;

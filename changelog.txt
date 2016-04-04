@@ -1,5 +1,5 @@
 ===================================
-zeeDynamic Pro Changelog
+Gambit Pro Changelog
 ===================================
 
 Version 1.0
