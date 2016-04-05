@@ -334,12 +334,3 @@ class Gambit_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 	}
 	
 }
-
-// Register Widget
-add_action( 'widgets_init', 'gambit_pro_register_magazine_posts_single_widget' );
-
-function gambit_pro_register_magazine_posts_single_widget() {
-
-	register_widget( 'Gambit_Pro_Magazine_Posts_Single_Widget' );
-	
-}

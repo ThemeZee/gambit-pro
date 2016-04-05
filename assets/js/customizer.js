@@ -8,26 +8,10 @@
 
 ( function( $ ) {
 
-	/* Top Navigation Color Option */
-	wp.customize( 'gambit_theme_options[top_navi_color]', function( value ) {
+	/* Footer Option */
+	wp.customize( 'gambit_theme_options[footer_color]', function( value ) {
 		value.bind( function( newval ) {
-			$('.header-bar-wrap, .top-navigation-menu ul')
-				.css( 'background', newval );
-		} );
-	} );
-
-	/* Footer Color Option */
-	wp.customize( 'gambit_theme_options[footer_area_color]', function( value ) {
-		value.bind( function( newval ) {
-			$('.footer-wrap, .footer-widgets-background')
-				.css('background', newval );
-		} );
-	} );
-	
-	/* Footer Navi Color Option */
-	wp.customize( 'gambit_theme_options[footer_navi_color]', function( value ) {
-		value.bind( function( newval ) {
-			$('.footer-navigation')
+			$('.site-footer-wrap, .footer-navigation-wrap, .footer-widgets-background')
 				.css('background', newval );
 		} );
 	} );

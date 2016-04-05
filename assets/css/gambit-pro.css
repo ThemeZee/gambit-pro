@@ -13,7 +13,7 @@
 # Header Bar
 --------------------------------------------------------------*/
 .header-bar-wrap {
-	background: #e84747;
+	background: #25b5d5;
 	padding: 0 0.5em;
 }
 
@@ -75,7 +75,7 @@
 
 .top-navigation-menu a:hover, 
 .top-navigation-menu a:active {
-	background: rgba(0,0,0,0.5);
+	background: #154585;
 }
 
 .top-navigation-menu ul {
@@ -86,7 +86,7 @@
 	padding: 0;
 	list-style-type: none;
 	list-style-position: outside;
-	background: #e84747;
+	background: #25b5d5;
 }
 
 .top-navigation-menu ul li{
@@ -113,6 +113,24 @@
 
 .top-navigation-menu ul li:last-child a {
 	border-bottom: none;
+}
+
+.top-navigation-menu ul .menu-item-has-children > a:after {
+	display: inline-block;
+	margin: 0.3em 0 0 0.2em;
+	font-size: 14px;
+	line-height: 1;
+	font-family: 'Genericons';
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: inherit;
+	vertical-align: top;
+	content: '\f431';
+	color: #fff;
+	-webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform:rotate(270deg);
+	-ms-transform:rotate(270deg);
 }
 
 .top-navigation-menu ul a:link, 
@@ -164,7 +182,7 @@
 
 .header-bar .social-icons-menu li a:hover,
 .header-bar .social-icons-menu li a:active {
-	background: rgba(0,0,0,0.5);
+	background: #154585;
 }
 
 /*--------------------------------------------------------------
@@ -236,8 +254,8 @@
 # Footer Widgets
 --------------------------------------------------------------*/
 .footer-widgets-background {
-	background: #333333;
-	padding: 2em 0 0;
+	background: #154585;
+	padding: 2em 2em 0;
 }
 
 .footer-widgets {
@@ -281,8 +299,13 @@
 /*--------------------------------------------------------------
 # Footer Navigation
 --------------------------------------------------------------*/
+.footer-navigation-wrap {
+	background: #154585;
+	margin-bottom: -4px;
+}
+
 .footer-navigation {
-	background: #e84747;
+	background: rgba(255,255,255,0.1);
 	padding: 0 1em;
 }
 
@@ -336,7 +359,7 @@
 
 .footer-navigation-menu a:hover, 
 .footer-navigation-menu a:active {
-	background: rgba(0,0,0,0.5);
+	background: rgba(255,255,255,0.2);
 }
 
 /*--------------------------------------------------------------
@@ -375,7 +398,7 @@
 @media only screen and (max-width: 80em) {
 
 	.footer-widgets-background {
-		padding: 1.5em 0 0;
+		padding: 1.5em 1.5em 0;
 	}
 
 	.footer-widgets {
@@ -664,7 +687,7 @@
 	.footer-navigation-toggle:active,
 	.footer-navigation-toggle:focus {
 		cursor: pointer;
-		background: rgba(0,0,0,0.25);
+		background: rgba(255,255,255,0.2);
 	}
 	
 	.footer-navigation-toggle:after {

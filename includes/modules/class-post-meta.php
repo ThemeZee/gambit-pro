@@ -125,7 +125,7 @@ class Gambit_Pro_Post_Meta {
 		);
 		
 		$wp_customize->add_setting( 'gambit_theme_options[post_image]', array(
-			'default'           => false,
+			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'gambit_sanitize_checkbox'
@@ -141,7 +141,7 @@ class Gambit_Pro_Post_Meta {
 		);
 		
 		$wp_customize->add_setting( 'gambit_theme_options[meta_tags]', array(
-			'default'           => false,
+			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'gambit_sanitize_checkbox'
