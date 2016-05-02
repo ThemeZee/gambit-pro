@@ -106,6 +106,7 @@ class Gambit_Pro {
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/admin/class-plugin-updater.php';
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/admin/class-settings.php';
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/admin/class-settings-page.php';
+		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/admin/class-admin-notices.php';
 		
 		// Include Customizer Classes
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/customizer/class-customizer.php';
@@ -145,9 +146,6 @@ class Gambit_Pro {
 		
 		// Add Settings link to Plugin actions
 		add_filter( 'plugin_action_links_' . plugin_basename( GAMBIT_PRO_PLUGIN_FILE ), array( __CLASS__, 'plugin_action_links' ) );
-		
-		// Add admin notices
-		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
 		
 		// Add automatic plugin updater from ThemeZee Store API
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
@@ -199,59 +197,6 @@ class Gambit_Pro {
 		$settings_link = array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=gambit-pro' ), __( 'Settings', 'gambit-pro' ) ) );
 		
 		return array_merge( $settings_link, $actions );
-	}
-	
-	/**
-	 * Add admin notices
-	 *
-	 * @return void
-	 */
-	static function admin_notices() { 
-	
-		global $pagenow;
-		
-		// Display missing theme notice on themes and plugins page
-		if ( ( $pagenow == 'themes.php' && !isset( $_GET['page'] ) ) or $pagenow == 'plugins.php' ) :
-	
-			// Display notice if Gambit theme is not active
-			if ( ! get_theme_support( 'gambit-pro' ) ) : ?>
-			
-				<div class="notice notice-warning">
-					<p>
-						<?php printf( __( 'The %1$s add-on needs the %2$s theme activated in order to work. You should deactivate %1$s if you have switched to another theme permanently.', 'gambit-pro' ),
-							GAMBIT_PRO_NAME,
-							'Gambit'
-						); ?>
-					</p>
-				</div>
-		
-			<?php
-			endif;
-			
-		endif;
-	
-		// Display missing license key notice on updates and plugins page
-		if ( $pagenow == 'update-core.php' or $pagenow == 'plugins.php' ) :
-		
-			// Get Settings
-			$options = Gambit_Pro_Settings::instance();
-		
-			if( '' == $options->get( 'license_key' ) ) : ?>
-				
-				<div class="updated">
-					<p>
-						<?php printf( __( 'Please enter your license key for the %1$s add-on in order to receive updates and support. <a href="%2$s">Enter License Key</a>', 'gambit-pro' ),
-							GAMBIT_PRO_NAME,
-							admin_url( 'themes.php?page=gambit-pro' ) ); 
-						?>
-					</p>
-				</div>
-				
-			<?php
-			endif;
-			
-		endif;
-	
 	}
 	
 	/**
