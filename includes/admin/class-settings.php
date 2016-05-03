@@ -271,9 +271,6 @@ class Gambit_Pro_Settings {
 		$status  = $this->get( 'license_status' );
 		$license = trim( $_POST['gambit_pro_settings']['license_key'] );
 
-		if( 'valid' == $status )
-			return; // license already activated and valid
-
 		// data to send in our API request
 		$api_params = array(
 			'edd_action'=> 'activate_license',
@@ -340,7 +337,7 @@ class Gambit_Pro_Settings {
 
 		$options = $this->get_all();
 
-		$options['license_status'] = 0;
+		$options['license_status'] = 'inactive';
 
 		update_option( 'gambit_pro_settings', $options );
 
@@ -360,7 +357,6 @@ class Gambit_Pro_Settings {
 		}
 
 		$status = get_transient( 'gambit_pro_license_check' );
-		$status = false;
 		
 		// Run the license check a maximum of once per day
 		if( false === $status ) {
@@ -368,7 +364,7 @@ class Gambit_Pro_Settings {
 			$options = $this->get_all();
 			$license_key = $options['license_key'];
 			
-			if( $license_key <> '' ) {
+			if( $license_key <> '' and $options['license_status'] <> 'inactive' ) {
 				
 				// data to send in our API request
 				$api_params = array(
