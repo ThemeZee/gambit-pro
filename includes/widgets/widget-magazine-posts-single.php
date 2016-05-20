@@ -21,7 +21,8 @@ class Gambit_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 			sprintf( esc_html__( 'Magazine Posts: Single (%s)', 'gambit-pro' ), 'Gambit Pro' ), // Name
 			array( 
 				'classname' => 'gambit_magazine_posts_single', 
-				'description' => esc_html__( 'Displays a single post from a selected category. Please use this widget ONLY in the Magazine Homepage widget area.', 'gambit-pro' ) 
+				'description' => esc_html__( 'Displays a single post from a selected category. Please use this widget ONLY in the Magazine Homepage widget area.', 'gambit-pro' ),
+				'customize_selective_refresh' => true,  
 			) // Args
 		);
 
