@@ -1,5 +1,5 @@
 <?php
-/***
+/**
  * Post Meta Settings
  *
  * Adds post meta settings to disable date, author or other meta information of posts
@@ -7,45 +7,44 @@
  * @package Gambit Pro
  */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-
-// Use class to avoid namespace collisions
-if ( ! class_exists( 'Gambit_Pro_Post_Meta' ) ) :
-
+/**
+ * Post Meta Class
+ */
 class Gambit_Pro_Post_Meta {
 
 	/**
 	 * Site Logo Setup
 	 *
 	 * @return void
-	*/
+	 */
 	static function setup() {
-		
-		// Return early if Gambit Theme is not active
-		if ( ! current_theme_supports( 'gambit-pro'  ) ) {
+
+		// Return early if Gambit Theme is not active.
+		if ( ! current_theme_supports( 'gambit-pro' ) ) {
 			return;
 		}
-		
-		// Add Post Meta Settings
+
+		// Add Post Meta Settings.
 		add_action( 'customize_register', array( __CLASS__, 'post_meta_settings' ) );
-	
+
 	}
-	
+
 	/**
 	 * Adds post meta settings
 	 *
-	 * @param object $wp_customize / Customizer Object
+	 * @param object $wp_customize / Customizer Object.
 	 */
 	static function post_meta_settings( $wp_customize ) {
 
-		// Add Post Meta Settings
+		// Add Post Meta Settings.
 		$wp_customize->add_setting( 'gambit_theme_options[postmeta_headline]', array(
 			'default'           => '',
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'esc_attr'
+			'sanitize_callback' => 'esc_attr',
 			)
 		);
 		$wp_customize->add_control( new Gambit_Customize_Header_Control(
@@ -53,16 +52,15 @@ class Gambit_Pro_Post_Meta {
 				'label' => esc_html__( 'Post Meta', 'gambit-pro' ),
 				'section' => 'gambit_section_post',
 				'settings' => 'gambit_theme_options[postmeta_headline]',
-				'priority' => 4
-				)
+				'priority' => 4,
 			)
-		);
-		
+		) );
+
 		$wp_customize->add_setting( 'gambit_theme_options[meta_date]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'gambit_sanitize_checkbox'
+			'sanitize_callback' => 'gambit_sanitize_checkbox',
 			)
 		);
 		$wp_customize->add_control( 'gambit_theme_options[meta_date]', array(
@@ -70,15 +68,15 @@ class Gambit_Pro_Post_Meta {
 			'section'  => 'gambit_section_post',
 			'settings' => 'gambit_theme_options[meta_date]',
 			'type'     => 'checkbox',
-			'priority' => 5
+			'priority' => 5,
 			)
 		);
-		
+
 		$wp_customize->add_setting( 'gambit_theme_options[meta_author]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'gambit_sanitize_checkbox'
+			'sanitize_callback' => 'gambit_sanitize_checkbox',
 			)
 		);
 		$wp_customize->add_control( 'gambit_theme_options[meta_author]', array(
@@ -86,15 +84,15 @@ class Gambit_Pro_Post_Meta {
 			'section'  => 'gambit_section_post',
 			'settings' => 'gambit_theme_options[meta_author]',
 			'type'     => 'checkbox',
-			'priority' => 6
+			'priority' => 6,
 			)
 		);
-		
+
 		$wp_customize->add_setting( 'gambit_theme_options[meta_category]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'gambit_sanitize_checkbox'
+			'sanitize_callback' => 'gambit_sanitize_checkbox',
 			)
 		);
 		$wp_customize->add_control( 'gambit_theme_options[meta_category]', array(
@@ -102,16 +100,16 @@ class Gambit_Pro_Post_Meta {
 			'section'  => 'gambit_section_post',
 			'settings' => 'gambit_theme_options[meta_category]',
 			'type'     => 'checkbox',
-			'priority' => 7
+			'priority' => 7,
 			)
 		);
 
-		// Add Post Footer Settings
+		// Add Post Footer Settings.
 		$wp_customize->add_setting( 'gambit_theme_options[single_posts_headline]', array(
 			'default'           => '',
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'esc_attr'
+			'sanitize_callback' => 'esc_attr',
 			)
 		);
 		$wp_customize->add_control( new Gambit_Customize_Header_Control(
@@ -119,16 +117,15 @@ class Gambit_Pro_Post_Meta {
 				'label' => esc_html__( 'Single Posts', 'gambit-pro' ),
 				'section' => 'gambit_section_post',
 				'settings' => 'gambit_theme_options[single_posts_headline]',
-				'priority' => 8
-				)
+				'priority' => 8,
 			)
-		);
-		
+		) );
+
 		$wp_customize->add_setting( 'gambit_theme_options[post_image]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'gambit_sanitize_checkbox'
+			'sanitize_callback' => 'gambit_sanitize_checkbox',
 			)
 		);
 		$wp_customize->add_control( 'gambit_theme_options[post_image]', array(
@@ -136,15 +133,15 @@ class Gambit_Pro_Post_Meta {
 			'section'  => 'gambit_section_post',
 			'settings' => 'gambit_theme_options[post_image]',
 			'type'     => 'checkbox',
-			'priority' => 9
+			'priority' => 9,
 			)
 		);
-		
+
 		$wp_customize->add_setting( 'gambit_theme_options[meta_tags]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'gambit_sanitize_checkbox'
+			'sanitize_callback' => 'gambit_sanitize_checkbox',
 			)
 		);
 		$wp_customize->add_control( 'gambit_theme_options[meta_tags]', array(
@@ -152,14 +149,14 @@ class Gambit_Pro_Post_Meta {
 			'section'  => 'gambit_section_post',
 			'settings' => 'gambit_theme_options[meta_tags]',
 			'type'     => 'checkbox',
-			'priority' => 10
+			'priority' => 10,
 			)
 		);
 		$wp_customize->add_setting( 'gambit_theme_options[post_navigation]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'gambit_sanitize_checkbox'
+			'sanitize_callback' => 'gambit_sanitize_checkbox',
 			)
 		);
 		$wp_customize->add_control( 'gambit_theme_options[post_navigation]', array(
@@ -167,15 +164,12 @@ class Gambit_Pro_Post_Meta {
 			'section'  => 'gambit_section_post',
 			'settings' => 'gambit_theme_options[post_navigation]',
 			'type'     => 'checkbox',
-			'priority' => 11
+			'priority' => 11,
 			)
 		);
 
 	}
-
 }
 
-// Run Class
+// Run Class.
 add_action( 'init', array( 'Gambit_Pro_Post_Meta', 'setup' ) );
-
-endif;
