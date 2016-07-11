@@ -121,7 +121,7 @@ class Gambit_Pro_Custom_Fonts {
 	/**
 	 * Replace default Google Fonts URL with custom Fonts from theme settings
 	 *
-	 * @uses admiral_google_fonts_url filter hook
+	 * @uses gambit_google_fonts_url filter hook
 	 * @param String $google_fonts_url Google Fonts URL.
 	 * @return string Google Font URL
 	 */
@@ -274,7 +274,7 @@ class Gambit_Pro_Custom_Fonts {
 			'default'           => 'favorites',
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Gambit_Pro_Custom_Fonts', 'gambit_pro_sanitize_available_fonts' ),
+			'sanitize_callback' => array( 'Gambit_Pro_Custom_Fonts', 'sanitize_available_fonts' ),
 			)
 		);
 		$wp_customize->add_control( new Gambit_Pro_Customize_Font_List_Control(
