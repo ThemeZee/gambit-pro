@@ -53,14 +53,14 @@ class Gambit_Pro_Custom_Colors {
 		if ( $theme_options['navi_primary_color'] != $default_options['navi_primary_color'] ) {
 
 			$custom_css .= '
-                /* Primary Navigation Color Setting */
-                .header-bar-wrap,
-                .top-navigation-menu ul,
-                .main-navigation-menu a:hover,
-                .main-navigation-menu a:active,
-                .main-navigation-menu li.current-menu-item > a {
+				/* Primary Navigation Color Setting */
+				.header-bar-wrap,
+				.top-navigation-menu ul,
+				.main-navigation-menu a:hover,
+				.main-navigation-menu a:active,
+				.main-navigation-menu li.current-menu-item > a {
 					background: '. $theme_options['navi_primary_color'] .';
-                }
+				}
 				';
 
 		}
@@ -70,16 +70,16 @@ class Gambit_Pro_Custom_Colors {
 
 			$custom_css .= '
 
-                /* Secondary Navigation Color Setting */
-                .primary-navigation,
-                .main-navigation-toggle,
-                .main-navigation-menu ul,
-                .top-navigation-menu a:hover,
-                .top-navigation-menu a:active,
-                .header-bar .social-icons-menu li a:hover,
-                .header-bar .social-icons-menu li a:active {
+				/* Secondary Navigation Color Setting */
+				.primary-navigation,
+				.main-navigation-toggle,
+				.main-navigation-menu ul,
+				.top-navigation-menu a:hover,
+				.top-navigation-menu a:active,
+				.header-bar .social-icons-menu li a:hover,
+				.header-bar .social-icons-menu li a:active {
 					background: '. $theme_options['navi_secondary_color'] .';
-                }
+				}
 				';
 
 		}
@@ -88,67 +88,67 @@ class Gambit_Pro_Custom_Colors {
 		if ( $theme_options['content_primary_color'] != $default_options['content_primary_color'] ) {
 
 			$custom_css .= '
-                /* Content Primary Color Setting */
-                a,
-                a:link,
-                a:visited,
-                .site-title,
-                .site-title a:link,
-                .site-title a:visited {
+				/* Content Primary Color Setting */
+				a,
+				a:link,
+				a:visited,
+				.site-title,
+				.site-title a:link,
+				.site-title a:visited {
 					color: '. $theme_options['content_primary_color'] .';
-                }
+				}
 
-                a:hover,
-                a:focus,
-                a:active,
-                .site-title a:hover,
-                .site-title a:active {
-                    color: #154585;
-                }
+				a:hover,
+				a:focus,
+				a:active,
+				.site-title a:hover,
+				.site-title a:active {
+				    color: #154585;
+				}
 
-                button,
-                input[type="button"],
-                input[type="reset"],
-                input[type="submit"],
-                .more-link,
-                .entry-tags .meta-tags a,
-                .widget_tag_cloud .tagcloud a,
-                .post-pagination .current,
-                .infinite-scroll #infinite-handle span,
-                .tzwb-social-icons .social-icons-menu li a,
-                .post-slider-controls .zeeflex-direction-nav a {
-                    color: #fff;
+				button,
+				input[type="button"],
+				input[type="reset"],
+				input[type="submit"],
+				.more-link,
+				.entry-tags .meta-tags a,
+				.widget_tag_cloud .tagcloud a,
+				.post-pagination .current,
+				.infinite-scroll #infinite-handle span,
+				.tzwb-social-icons .social-icons-menu li a,
+				.post-slider-controls .zeeflex-direction-nav a {
+				    color: #fff;
 					background: '. $theme_options['content_primary_color'] .';
-                }
+				}
 
-                button:hover,
-                input[type="button"]:hover,
-                input[type="reset"]:hover,
-                input[type="submit"]:hover,
-                button:focus,
-                input[type="button"]:focus,
-                input[type="reset"]:focus,
-                input[type="submit"]:focus,
-                button:active,
-                input[type="button"]:active,
-                input[type="reset"]:active,
-                input[type="submit"]:active,
-                .more-link:hover,
-                .more-link:focus,
-                .more-link:active,
-                .entry-tags .meta-tags a:hover,
-                .entry-tags .meta-tags a:focus,
-                .entry-tags .meta-tags a:active,
-                .widget_tag_cloud .tagcloud a:hover,
-                .widget_tag_cloud .tagcloud a:focus,
-                .widget_tag_cloud .tagcloud a:active,
-                .infinite-scroll #infinite-handle span:hover,
-                .infinite-scroll #infinite-handle span:active,
-                .tzwb-social-icons .social-icons-menu li a:hover,
-                .tzwb-social-icons .social-icons-menu li a:focus,
-                .tzwb-social-icons .social-icons-menu li a:active {
-                    background: #154585;
-                }
+				button:hover,
+				input[type="button"]:hover,
+				input[type="reset"]:hover,
+				input[type="submit"]:hover,
+				button:focus,
+				input[type="button"]:focus,
+				input[type="reset"]:focus,
+				input[type="submit"]:focus,
+				button:active,
+				input[type="button"]:active,
+				input[type="reset"]:active,
+				input[type="submit"]:active,
+				.more-link:hover,
+				.more-link:focus,
+				.more-link:active,
+				.entry-tags .meta-tags a:hover,
+				.entry-tags .meta-tags a:focus,
+				.entry-tags .meta-tags a:active,
+				.widget_tag_cloud .tagcloud a:hover,
+				.widget_tag_cloud .tagcloud a:focus,
+				.widget_tag_cloud .tagcloud a:active,
+				.infinite-scroll #infinite-handle span:hover,
+				.infinite-scroll #infinite-handle span:active,
+				.tzwb-social-icons .social-icons-menu li a:hover,
+				.tzwb-social-icons .social-icons-menu li a:focus,
+				.tzwb-social-icons .social-icons-menu li a:active {
+				    background: #154585;
+				}
 				';
 
 		}
@@ -157,69 +157,69 @@ class Gambit_Pro_Custom_Colors {
 		if ( $theme_options['content_secondary_color'] != $default_options['content_secondary_color'] ) {
 
 			$custom_css .= '
-                /* Content Secondary Color Setting */
-                a:hover,
-                a:focus,
-                a:active,
-                .site-title a:hover,
-                .site-title a:active,
-                .page-title,
-                .entry-title,
-                .entry-title a:link,
-                .entry-title a:visited {
+				/* Content Secondary Color Setting */
+				a:hover,
+				a:focus,
+				a:active,
+				.site-title a:hover,
+				.site-title a:active,
+				.page-title,
+				.entry-title,
+				.entry-title a:link,
+				.entry-title a:visited {
 					color: '. $theme_options['content_secondary_color'] .';
-                }
+				}
 
-                .entry-title a:hover,
-                .entry-title a:active {
-                    color: #25b5d5;
-                }
+				.entry-title a:hover,
+				.entry-title a:active {
+				    color: #25b5d5;
+				}
 
-                .widget-header,
-                .page-header,
-                button:hover,
-                input[type="button"]:hover,
-                input[type="reset"]:hover,
-                input[type="submit"]:hover,
-                button:focus,
-                input[type="button"]:focus,
-                input[type="reset"]:focus,
-                input[type="submit"]:focus,
-                button:active,
-                input[type="button"]:active,
-                input[type="reset"]:active,
-                input[type="submit"]:active,
-                .more-link:hover,
-                .more-link:focus,
-                .more-link:active,
-                .entry-tags .meta-tags a:hover,
-                .entry-tags .meta-tags a:focus,
-                .entry-tags .meta-tags a:active,
-                .widget_tag_cloud .tagcloud a:hover,
-                .widget_tag_cloud .tagcloud a:focus,
-                .widget_tag_cloud .tagcloud a:active,
-                .post-pagination a:link,
-                .post-pagination a:visited,
-                .infinite-scroll #infinite-handle span:hover,
-                .infinite-scroll #infinite-handle span:active,
-                .tzwb-tabbed-content .tzwb-tabnavi li a,
-                .tzwb-tabbed-content .tzwb-tabnavi li a:link,
-                .tzwb-tabbed-content .tzwb-tabnavi li a:visited,
-                .tzwb-social-icons .social-icons-menu li a:hover,
-                .tzwb-social-icons .social-icons-menu li a:focus,
-                .tzwb-social-icons .social-icons-menu li a:active,
-                .post-slider-controls .zeeflex-direction-nav a:hover,
-                .post-slider-controls .zeeflex-direction-nav a:active {
+				.widget-header,
+				.page-header,
+				button:hover,
+				input[type="button"]:hover,
+				input[type="reset"]:hover,
+				input[type="submit"]:hover,
+				button:focus,
+				input[type="button"]:focus,
+				input[type="reset"]:focus,
+				input[type="submit"]:focus,
+				button:active,
+				input[type="button"]:active,
+				input[type="reset"]:active,
+				input[type="submit"]:active,
+				.more-link:hover,
+				.more-link:focus,
+				.more-link:active,
+				.entry-tags .meta-tags a:hover,
+				.entry-tags .meta-tags a:focus,
+				.entry-tags .meta-tags a:active,
+				.widget_tag_cloud .tagcloud a:hover,
+				.widget_tag_cloud .tagcloud a:focus,
+				.widget_tag_cloud .tagcloud a:active,
+				.post-pagination a:link,
+				.post-pagination a:visited,
+				.infinite-scroll #infinite-handle span:hover,
+				.infinite-scroll #infinite-handle span:active,
+				.tzwb-tabbed-content .tzwb-tabnavi li a,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:link,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:visited,
+				.tzwb-social-icons .social-icons-menu li a:hover,
+				.tzwb-social-icons .social-icons-menu li a:focus,
+				.tzwb-social-icons .social-icons-menu li a:active,
+				.post-slider-controls .zeeflex-direction-nav a:hover,
+				.post-slider-controls .zeeflex-direction-nav a:active {
 					background: '. $theme_options['content_secondary_color'] .';
-                }
+				}
 
-                .post-pagination a:hover,
-                .post-pagination a:active,
-                .tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-                .tzwb-tabbed-content .tzwb-tabnavi li a:active,
-                .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-                    background: #25b5d5;
-                }
+				.post-pagination a:hover,
+				.post-pagination a:active,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
+				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
+				    background: #25b5d5;
+				}
 				';
 
 		}
@@ -228,19 +228,19 @@ class Gambit_Pro_Custom_Colors {
 		if ( $theme_options['content_primary_color'] != $default_options['content_primary_color'] ) {
 
 			$custom_css .= '
-                /* Content Primary Hover Color Setting */
-                .entry-title a:hover,
-                .entry-title a:active {
+				/* Content Primary Hover Color Setting */
+				.entry-title a:hover,
+				.entry-title a:active {
 					color: '. $theme_options['content_primary_color'] .';
-                }
+				}
 
-                .post-pagination a:hover,
-                .post-pagination a:active,
-                .tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-                .tzwb-tabbed-content .tzwb-tabnavi li a:active,
-                .tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
+				.post-pagination a:hover,
+				.post-pagination a:active,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
+				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
+				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
 					background: '. $theme_options['content_primary_color'] .';
-                }
+				}
 				';
 
 		}
@@ -250,12 +250,12 @@ class Gambit_Pro_Custom_Colors {
 
 			$custom_css .= '
 
-                /* Footer Color Setting */
-                .site-footer-wrap,
-                .footer-navigation-wrap,
-                .footer-widgets-background {
+				/* Footer Color Setting */
+				.site-footer-wrap,
+				.footer-navigation-wrap,
+				.footer-widgets-background {
 					background: '. $theme_options['footer_color'] .';
-                }
+				}
 				';
 
 		}
