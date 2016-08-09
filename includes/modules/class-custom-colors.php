@@ -103,7 +103,7 @@ class Gambit_Pro_Custom_Colors {
 				a:active,
 				.site-title a:hover,
 				.site-title a:active {
-				    color: #154585;
+				    color: #252525;
 				}
 
 				button,
@@ -147,7 +147,7 @@ class Gambit_Pro_Custom_Colors {
 				.tzwb-social-icons .social-icons-menu li a:hover,
 				.tzwb-social-icons .social-icons-menu li a:focus,
 				.tzwb-social-icons .social-icons-menu li a:active {
-				    background: #154585;
+				    background: #252525;
 				}
 				';
 
@@ -172,7 +172,7 @@ class Gambit_Pro_Custom_Colors {
 
 				.entry-title a:hover,
 				.entry-title a:active {
-				    color: #25b5d5;
+				    color: #1585b5;
 				}
 
 				.widget-header,
@@ -218,7 +218,7 @@ class Gambit_Pro_Custom_Colors {
 				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
 				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
 				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-				    background: #25b5d5;
+				    background: #1585b5;
 				}
 				';
 

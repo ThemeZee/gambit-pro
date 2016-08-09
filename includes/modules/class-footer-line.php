@@ -55,23 +55,27 @@ class Gambit_Pro_Footer_Line {
 
 			echo '<div id="footer-navigation-wrap" class="footer-navigation-wrap">';
 
-				echo '<nav id="footer-navigation" class="footer-navigation navigation clearfix" role="navigation">';
+				echo '<div id="footer-navigation-bg" class="footer-navigation-background">';
 
-					echo '<span class="today">' . date( get_option( 'date_format' ) . ' / ' . get_option( 'time_format' ) ) . '</span>';
+					echo '<nav id="footer-navigation" class="footer-navigation navigation container clearfix" role="navigation">';
 
-					wp_nav_menu( array(
-						'theme_location' => 'footer',
-						'container' => false,
-						'menu_class' => 'footer-navigation-menu',
-						'echo' => true,
-						'fallback_cb' => '',
-						'depth' => 1,
-						)
-					);
+						echo '<span class="today">' . date( get_option( 'date_format' ) . ' / ' . get_option( 'time_format' ) ) . '</span>';
+
+						wp_nav_menu( array(
+							'theme_location' => 'footer',
+							'container' => false,
+							'menu_class' => 'footer-navigation-menu',
+							'echo' => true,
+							'fallback_cb' => '',
+							'depth' => 1,
+							)
+						);
 
 					echo '</nav>';
 
-					echo '</div><!-- #footer-navigation-wrap -->';
+				echo '</div>';
+
+			echo '</div><!-- #footer-navigation-wrap -->';
 
 		}
 

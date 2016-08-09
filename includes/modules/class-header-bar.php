@@ -39,7 +39,7 @@ class Gambit_Pro_Header_Bar {
 	 */
 	static function display_header_bar() {
 
-		echo '<div id="header-bar" class="header-bar clearfix">';
+		echo '<div id="header-bar" class="header-bar container clearfix">';
 
 		// Check if there is a social menu.
 		if ( has_nav_menu( 'social' ) ) {

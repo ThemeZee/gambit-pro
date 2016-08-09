@@ -14,7 +14,7 @@
 --------------------------------------------------------------*/
 .header-bar-wrap {
 	color: #fff;
-	background: #25b5d5;
+	background: #1585b5;
 	padding: 0 0.5em;
 	position: relative;
 }
@@ -46,20 +46,18 @@
 	transition: all 0.2s ease;
 }
 
-.top-navigation-menu > .menu-item-has-children > a:after {
+.top-navigation-menu > .menu-item-has-children > a:after,
+.top-navigation-menu ul .menu-item-has-children > a:after {
 	display: inline-block;
-	margin: 0.4em 0 0 0.25em;
-	font-size: 12px;
+	margin: 0.2em 0 0 0.4em;
+	font-size: 14px;
 	line-height: 1;
-	font-family: 'Genericons';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-decoration: inherit;
 	vertical-align: top;
-	content: '\f431';
+	content: "\00BB";
 	color: #fff;
-	-webkit-transition: all 0.2s ease;
-	transition: all 0.2s ease;
 }
 
 .top-navigation-menu a:link,
@@ -69,7 +67,7 @@
 
 .top-navigation-menu a:hover,
 .top-navigation-menu a:active {
-	background: #154585;
+	background: #252525;
 }
 
 .top-navigation-menu ul {
@@ -80,7 +78,7 @@
 	padding: 0;
 	list-style-type: none;
 	list-style-position: outside;
-	background: #25b5d5;
+	background: #1585b5;
 }
 
 .top-navigation-menu ul li{
@@ -100,24 +98,6 @@
 
 .top-navigation-menu ul li:last-child a {
 	border-bottom: none;
-}
-
-.top-navigation-menu ul .menu-item-has-children > a:after {
-	display: inline-block;
-	margin: 0.3em 0 0 0.2em;
-	font-size: 14px;
-	line-height: 1;
-	font-family: 'Genericons';
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-decoration: inherit;
-	vertical-align: top;
-	content: '\f431';
-	color: #fff;
-	-webkit-transform:rotate(270deg);
-	-moz-transform:rotate(270deg);
-	-o-transform:rotate(270deg);
-	-ms-transform:rotate(270deg);
 }
 
 .top-navigation-menu ul a:link,
@@ -161,7 +141,7 @@
 
 .header-bar .social-icons-menu li a:hover,
 .header-bar .social-icons-menu li a:active {
-	background: #154585;
+	background: #252525;
 }
 
 /*--------------------------------------------------------------
@@ -225,7 +205,7 @@
 # Footer Widgets
 --------------------------------------------------------------*/
 .footer-widgets-background {
-	background: #154585;
+	background: #252525;
 	padding: 2em 2em 0;
 }
 
@@ -269,19 +249,23 @@
 # Footer Navigation
 --------------------------------------------------------------*/
 .footer-navigation-wrap {
-	background: #154585;
+	background: #252525;
+	margin-bottom: -4px;
+}
+
+.footer-navigation-background {
+	background: rgba(255,255,255,0.1);
 	margin-bottom: -4px;
 }
 
 .footer-navigation {
-	background: rgba(255,255,255,0.1);
 	padding: 0 1em;
 }
 
 .footer-navigation .today {
 	display: inline-block;
 	color: #fff;
-	margin: 0;
+	margin: 0 0 0 1em;
 	padding: 0.75em 0;
 	font-size: 13px;
 	font-size: 0.8125rem;
@@ -331,7 +315,7 @@
 /*--------------------------------------------------------------
 # Footer Social Menu
 --------------------------------------------------------------*/
-.site-footer {
+.site-footer-wrap {
 	border-top: 4px solid rgba(255,255,255,0.1);
 }
 
@@ -800,6 +784,25 @@
 
 	.footer-navigation-menu {
 		display: block !important;
+	}
+
+}
+
+/*--------------------------------------------------------------
+## Theme Width
+--------------------------------------------------------------*/
+@media only screen and (min-width: 85em) {
+
+	.wide-layout .footer-navigation {
+		padding: 0;
+	}
+
+	.wide-layout .footer-navigation .today {
+		margin: 0;
+	}
+
+	.wide-layout .site-footer .social-icons-navigation {
+		margin: 0.25em 0 0;
 	}
 
 }
