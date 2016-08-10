@@ -36,12 +36,12 @@ class Gambit_Pro_Custom_Colors {
 	}
 
 	/**
-	 * Adds Color CSS styles in the head area to override default colors
+	 * Builds all custom color CSS styles.
 	 *
 	 * @param String $custom_css Custom Styling CSS.
 	 * @return string CSS code
 	 */
-	static function custom_colors_css( $custom_css ) {
+	static function custom_colors_css( $custom_css = '' ) {
 
 		// Get Theme Options from Database.
 		$theme_options = Gambit_Pro_Customizer::get_theme_options();
@@ -49,8 +49,11 @@ class Gambit_Pro_Custom_Colors {
 		// Get Default Fonts from settings.
 		$default_options = Gambit_Pro_Customizer::get_default_options();
 
+		// Check if we are in Customizer Preview.
+		$is_customize_preview = is_customize_preview();
+
 		// Set Top Navigation Color.
-		if ( $theme_options['top_navi_color'] != $default_options['top_navi_color'] ) {
+		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
@@ -63,7 +66,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Primary Navigation Color.
-		if ( $theme_options['navi_primary_color'] != $default_options['navi_primary_color'] ) {
+		if ( $theme_options['navi_primary_color'] !== $default_options['navi_primary_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
@@ -77,7 +80,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Secondary Navigation Color.
-		if ( $theme_options['navi_secondary_color'] != $default_options['navi_secondary_color'] ) {
+		if ( $theme_options['navi_secondary_color'] !== $default_options['navi_secondary_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 
@@ -92,7 +95,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Primary Content Color.
-		if ( $theme_options['content_primary_color'] != $default_options['content_primary_color'] ) {
+		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Content Primary Color Setting */
@@ -161,7 +164,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Link Color.
-		if ( $theme_options['content_secondary_color'] != $default_options['content_secondary_color'] ) {
+		if ( $theme_options['content_secondary_color'] !== $default_options['content_secondary_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Content Secondary Color Setting */
@@ -230,7 +233,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Primary Hover Content Color.
-		if ( $theme_options['content_primary_color'] != $default_options['content_primary_color'] ) {
+		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Content Primary Hover Color Setting */
@@ -251,7 +254,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Widget Title Color.
-		if ( $theme_options['widget_title_color'] != $default_options['widget_title_color'] ) {
+		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Widget Title Color Setting */
@@ -264,7 +267,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Footer Color.
-		if ( $theme_options['footer_color'] != $default_options['footer_color'] ) {
+		if ( $theme_options['footer_color'] !== $default_options['footer_color'] || $is_customize_preview ) {
 
 			$custom_css .= '
 				/* Footer Color Setting */
@@ -287,6 +290,9 @@ class Gambit_Pro_Custom_Colors {
 	 * @param object $wp_customize / Customizer Object.
 	 */
 	static function color_settings( $wp_customize ) {
+
+		// Set Transport method. Only use postMessage if selective refresh is supported.
+		$transport = isset( $wp_customize->selective_refresh ) ? 'postMessage' : 'refresh';
 
 		// Add Section for Theme Colors.
 		$wp_customize->add_section( 'gambit_pro_section_colors', array(
@@ -320,7 +326,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[navi_primary_color]', array(
 			'default'           => $default_options['navi_primary_color'],
 			'type'           	=> 'option',
-			'transport'         => 'refresh',
+			'transport'         => $transport,
 			'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -337,7 +343,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[navi_secondary_color]', array(
 			'default'           => $default_options['navi_secondary_color'],
 			'type'           	=> 'option',
-			'transport'         => 'refresh',
+			'transport'         => $transport,
 			'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -354,7 +360,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[content_primary_color]', array(
 			'default'           => $default_options['content_primary_color'],
 			'type'           	=> 'option',
-			'transport'         => 'refresh',
+			'transport'         => $transport,
 			'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -371,7 +377,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[content_secondary_color]', array(
 			'default'           => $default_options['content_secondary_color'],
 			'type'           	=> 'option',
-			'transport'         => 'refresh',
+			'transport'         => $transport,
 			'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -417,6 +423,26 @@ class Gambit_Pro_Custom_Colors {
 				'priority' => 7,
 			)
 		) );
+
+		// Add support for selective refresh.
+		if ( isset( $wp_customize->selective_refresh ) ) {
+
+			$wp_customize->selective_refresh->add_partial( 'gambit_pro_custom_colors', array(
+				'selector' => '#gambit-pro-custom-colors-css',
+				'settings' => array(
+					'gambit_theme_options[top_navi_color]',
+					'gambit_theme_options[navi_primary_color]',
+					'gambit_theme_options[navi_secondary_color]',
+					'gambit_theme_options[content_primary_color]',
+					'gambit_theme_options[content_secondary_color]',
+					'gambit_theme_options[widget_title_color]',
+					'gambit_theme_options[footer_color]',
+				),
+				'container_inclusive' => false,
+				'render_callback' => array( __CLASS__, 'custom_colors_css' ),
+			) );
+
+		}
 
 	}
 }

@@ -8,6 +8,13 @@
 
 ( function( $ ) {
 
+	// Add Empty CSS area.
+	var colors = $( '#gambit-pro-custom-colors-css' );
+
+	if ( ! colors.length ) {
+		colors = $( 'body' ).append( '<style type="text/css" id="gambit-pro-custom-colors-css"></style>' ).find( '#gambit-pro-custom-colors-css' );
+	}
+
 	/* Top Navigation Color Option */
 	wp.customize( 'gambit_theme_options[top_navi_color]', function( value ) {
 		value.bind( function( newval ) {
