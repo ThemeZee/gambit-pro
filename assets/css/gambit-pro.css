@@ -67,7 +67,7 @@
 
 .top-navigation-menu a:hover,
 .top-navigation-menu a:active {
-	background: #252525;
+	background: rgba(255,255,255,0.2);
 }
 
 .top-navigation-menu ul {

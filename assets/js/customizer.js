@@ -8,7 +8,23 @@
 
 ( function( $ ) {
 
-	/* Footer Option */
+	/* Top Navigation Color Option */
+	wp.customize( 'gambit_theme_options[top_navi_color]', function( value ) {
+		value.bind( function( newval ) {
+			$( '.header-bar-wrap, .top-navigation-menu ul' )
+				.css( 'background', newval );
+		} );
+	} );
+
+	/* Widgt Title Color Option */
+	wp.customize( 'gambit_theme_options[widget_title_color]', function( value ) {
+		value.bind( function( newval ) {
+			$( '.widget-header, .page-header' )
+				.css( 'background', newval );
+		} );
+	} );
+
+	/* Footer Color Option */
 	wp.customize( 'gambit_theme_options[footer_color]', function( value ) {
 		value.bind( function( newval ) {
 			$( '.site-footer-wrap, .footer-navigation-wrap, .footer-widgets-background' )

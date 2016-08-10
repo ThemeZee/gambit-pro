@@ -49,13 +49,24 @@ class Gambit_Pro_Custom_Colors {
 		// Get Default Fonts from settings.
 		$default_options = Gambit_Pro_Customizer::get_default_options();
 
+		// Set Top Navigation Color.
+		if ( $theme_options['top_navi_color'] != $default_options['top_navi_color'] ) {
+
+			$custom_css .= '
+				/* Primary Navigation Color Setting */
+				.header-bar-wrap,
+				.top-navigation-menu ul {
+					background: '. $theme_options['top_navi_color'] .';
+				}
+				';
+
+		}
+
 		// Set Primary Navigation Color.
 		if ( $theme_options['navi_primary_color'] != $default_options['navi_primary_color'] ) {
 
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
-				.header-bar-wrap,
-				.top-navigation-menu ul,
 				.main-navigation-menu a:hover,
 				.main-navigation-menu a:active,
 				.main-navigation-menu li.current-menu-item > a {
@@ -71,13 +82,9 @@ class Gambit_Pro_Custom_Colors {
 			$custom_css .= '
 
 				/* Secondary Navigation Color Setting */
-				.primary-navigation,
+				.primary-navigation-wrap,
 				.main-navigation-toggle,
-				.main-navigation-menu ul,
-				.top-navigation-menu a:hover,
-				.top-navigation-menu a:active,
-				.header-bar .social-icons-menu li a:hover,
-				.header-bar .social-icons-menu li a:active {
+				.main-navigation-menu ul {
 					background: '. $theme_options['navi_secondary_color'] .';
 				}
 				';
@@ -175,8 +182,6 @@ class Gambit_Pro_Custom_Colors {
 				    color: #1585b5;
 				}
 
-				.widget-header,
-				.page-header,
 				button:hover,
 				input[type="button"]:hover,
 				input[type="reset"]:hover,
@@ -245,11 +250,23 @@ class Gambit_Pro_Custom_Colors {
 
 		}
 
+		// Set Widget Title Color.
+		if ( $theme_options['widget_title_color'] != $default_options['widget_title_color'] ) {
+
+			$custom_css .= '
+				/* Widget Title Color Setting */
+				.widget-header,
+				.page-header {
+					background: '. $theme_options['widget_title_color'] .';
+				}
+				';
+
+		}
+
 		// Set Footer Color.
 		if ( $theme_options['footer_color'] != $default_options['footer_color'] ) {
 
 			$custom_css .= '
-
 				/* Footer Color Setting */
 				.site-footer-wrap,
 				.footer-navigation-wrap,
@@ -282,6 +299,23 @@ class Gambit_Pro_Custom_Colors {
 		// Get Default Colors from settings.
 		$default_options = Gambit_Pro_Customizer::get_default_options();
 
+		// Add Widget Title Color setting.
+		$wp_customize->add_setting( 'gambit_theme_options[top_navi_color]', array(
+			'default'           => $default_options['top_navi_color'],
+			'type'           	=> 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'gambit_theme_options[top_navi_color]', array(
+				'label'      => _x( 'Top Navigation', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[top_navi_color]',
+				'priority' => 1,
+			)
+		) );
+
 		// Add Navigation Primary Color setting.
 		$wp_customize->add_setting( 'gambit_theme_options[navi_primary_color]', array(
 			'default'           => $default_options['navi_primary_color'],
@@ -295,7 +329,7 @@ class Gambit_Pro_Custom_Colors {
 				'label'      => _x( 'Navigation (primary)', 'color setting', 'gambit-pro' ),
 				'section'    => 'gambit_pro_section_colors',
 				'settings'   => 'gambit_theme_options[navi_primary_color]',
-				'priority' => 1,
+				'priority' => 2,
 			)
 		) );
 
@@ -312,7 +346,7 @@ class Gambit_Pro_Custom_Colors {
 				'label'      => _x( 'Navigation (secondary)', 'color setting', 'gambit-pro' ),
 				'section'    => 'gambit_pro_section_colors',
 				'settings'   => 'gambit_theme_options[navi_secondary_color]',
-				'priority' => 2,
+				'priority' => 3,
 			)
 		) );
 
@@ -329,7 +363,7 @@ class Gambit_Pro_Custom_Colors {
 				'label'      => _x( 'Content (primary)', 'color setting', 'gambit-pro' ),
 				'section'    => 'gambit_pro_section_colors',
 				'settings'   => 'gambit_theme_options[content_primary_color]',
-				'priority' => 3,
+				'priority' => 4,
 			)
 		) );
 
@@ -346,11 +380,28 @@ class Gambit_Pro_Custom_Colors {
 				'label'      => _x( 'Content (secondary)', 'color setting', 'gambit-pro' ),
 				'section'    => 'gambit_pro_section_colors',
 				'settings'   => 'gambit_theme_options[content_secondary_color]',
-				'priority' => 4,
+				'priority' => 5,
 			)
 		) );
 
-		// Add Footer Widgets Color setting.
+		// Add Widget Title Color setting.
+		$wp_customize->add_setting( 'gambit_theme_options[widget_title_color]', array(
+			'default'           => $default_options['widget_title_color'],
+			'type'           	=> 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'gambit_theme_options[widget_title_color]', array(
+				'label'      => _x( 'Widget Titles', 'color setting', 'gambit-pro' ),
+				'section'    => 'gambit_pro_section_colors',
+				'settings'   => 'gambit_theme_options[widget_title_color]',
+				'priority' => 6,
+			)
+		) );
+
+		// Add Footer Color setting.
 		$wp_customize->add_setting( 'gambit_theme_options[footer_color]', array(
 			'default'           => $default_options['footer_color'],
 			'type'           	=> 'option',
@@ -363,7 +414,7 @@ class Gambit_Pro_Custom_Colors {
 				'label'      => _x( 'Footer', 'color setting', 'gambit-pro' ),
 				'section'    => 'gambit_pro_section_colors',
 				'settings'   => 'gambit_theme_options[footer_color]',
-				'priority' => 5,
+				'priority' => 7,
 			)
 		) );
 
