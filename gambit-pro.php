@@ -65,7 +65,7 @@ class Gambit_Pro {
 		define( 'GAMBIT_PRO_VERSION', '1.0' );
 
 		// Define Plugin Name.
-		define( 'GAMBIT_PRO_PRODUCT_ID', 58567 );
+		define( 'GAMBIT_PRO_PRODUCT_ID', 73300 );
 
 		// Define Update API URL.
 		define( 'GAMBIT_PRO_STORE_API_URL', 'https://themezee.com' );
