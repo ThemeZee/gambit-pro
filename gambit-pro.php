@@ -225,7 +225,7 @@ class Gambit_Pro {
 
 		if ( $options->get( 'license_key' ) <> '' ) :
 
-			$license_key = $options->get( 'license_key' );
+			$license_key = trim( $options->get( 'license_key' ) );
 
 			// Setup the updater.
 			$gambit_pro_updater = new Gambit_Pro_Plugin_Updater( GAMBIT_PRO_STORE_API_URL, __FILE__, array(
