@@ -2,6 +2,11 @@
 Gambit Pro Changelog
 ===================================
 
+Version 1.0.3
+-----------------------------------
+* changed HTML markup of header bar
+* updated EDD Plugin Updater class
+
 Version 1.0.2
 -----------------------------------
 * improved styling of footer navigation menu
