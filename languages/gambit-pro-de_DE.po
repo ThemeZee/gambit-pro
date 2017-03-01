@@ -2043,14 +2043,14 @@ msgstr ""
 #~ msgid "Appears on posts and pages."
 #~ msgstr "Erscheint auf Beiträgen und Seiten."
 
-#~ msgid "https://themezee.com/themes/admiral/"
-#~ msgstr "https://themezee.com/de/themes/admiral/"
+#~ msgid "https://themezee.com/themes/gambit/"
+#~ msgstr "https://themezee.com/de/themes/gambit/"
 
-#~ msgid "https://themezee.com/docs/admiral-documentation/"
-#~ msgstr "https://themezee.com/de/docs/admiral-dokumentation/"
+#~ msgid "https://themezee.com/docs/gambit-documentation/"
+#~ msgstr "https://themezee.com/de/docs/gambit-dokumentation/"
 
-#~ msgid "https://themezee.com/addons/admiral-pro/"
-#~ msgstr "https://themezee.com/de/addons/admiral-pro/"
+#~ msgid "https://themezee.com/addons/gambit-pro/"
+#~ msgstr "https://themezee.com/de/addons/gambit-pro/"
 
 #~ msgid "Main Sidebar Title"
 #~ msgstr "Titel der Basis Sidebar"
