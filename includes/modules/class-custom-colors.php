@@ -126,7 +126,10 @@ class Gambit_Pro_Custom_Colors {
 				.pagination .current,
 				.infinite-scroll #infinite-handle span,
 				.tzwb-social-icons .social-icons-menu li a,
-				.post-slider-controls .zeeflex-direction-nav a {
+				.post-slider-controls .zeeflex-direction-nav a,
+				.scroll-to-top-button,
+				.scroll-to-top-button:focus,
+				.scroll-to-top-button:active {
 				    color: #fff;
 					background: ' . $theme_options['content_primary_color'] . ';
 				}
@@ -217,7 +220,8 @@ class Gambit_Pro_Custom_Colors {
 				.tzwb-social-icons .social-icons-menu li a:focus,
 				.tzwb-social-icons .social-icons-menu li a:active,
 				.post-slider-controls .zeeflex-direction-nav a:hover,
-				.post-slider-controls .zeeflex-direction-nav a:active {
+				.post-slider-controls .zeeflex-direction-nav a:active,
+				.scroll-to-top-button:hover {
 					background: ' . $theme_options['content_secondary_color'] . ';
 				}
 
