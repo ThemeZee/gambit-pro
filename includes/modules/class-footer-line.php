@@ -170,7 +170,7 @@ class Gambit_Pro_Footer_Line {
 			'section'  => 'gambit_pro_section_footer',
 			'settings' => 'gambit_theme_options[footer_text]',
 			'type'     => 'textarea',
-			'priority' => 1,
+			'priority' => 30,
 			)
 		);
 
@@ -187,7 +187,7 @@ class Gambit_Pro_Footer_Line {
 			'section'  => 'gambit_pro_section_footer',
 			'settings' => 'gambit_theme_options[credit_link]',
 			'type'     => 'checkbox',
-			'priority' => 2,
+			'priority' => 40,
 			)
 		);
 
