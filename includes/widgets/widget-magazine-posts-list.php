@@ -24,7 +24,7 @@ class Gambit_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 			esc_html__( 'Magazine (List)', 'gambit-pro' ), // Name.
 			array(
 				'classname' => 'gambit-magazine-list-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a simple list layout.', 'gambit-pro' ),
+				'description' => esc_html__( 'Displays your posts from a selected category in a list layout.', 'gambit-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
