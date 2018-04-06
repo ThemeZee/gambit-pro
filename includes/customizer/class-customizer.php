@@ -75,7 +75,6 @@ class Gambit_Pro_Customizer {
 			'title_font'              => 'Oxygen',
 			'navi_font'               => 'Oxygen',
 			'widget_title_font'       => 'Oxygen',
-			'available_fonts'         => 'favorites',
 		);
 
 		return $default_options;
