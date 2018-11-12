@@ -5,11 +5,11 @@ Plugin URI: http://themezee.com/addons/gambit-pro/
 Description: Adds additional features like custom colors, google fonts, widget areas and footer copyright to the Gambit theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.4
+Version: 1.5
 Text Domain: gambit-pro
 Domain Path: /languages/
-License: GPL v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Gambit Pro
 Copyright(C) 2017, ThemeZee.com - support@themezee.com
@@ -17,7 +17,9 @@ Copyright(C) 2017, ThemeZee.com - support@themezee.com
 */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**
@@ -48,7 +50,6 @@ class Gambit_Pro {
 
 		// Setup Action Hooks.
 		self::setup_actions();
-
 	}
 
 	/**
@@ -62,7 +63,7 @@ class Gambit_Pro {
 		define( 'GAMBIT_PRO_NAME', 'Gambit Pro' );
 
 		// Define Version Number.
-		define( 'GAMBIT_PRO_VERSION', '1.4' );
+		define( 'GAMBIT_PRO_VERSION', '1.5' );
 
 		// Define Plugin Name.
 		define( 'GAMBIT_PRO_PRODUCT_ID', 73300 );
@@ -78,7 +79,6 @@ class Gambit_Pro {
 
 		// Plugin Root File.
 		define( 'GAMBIT_PRO_PLUGIN_FILE', __FILE__ );
-
 	}
 
 	/**
@@ -122,7 +122,6 @@ class Gambit_Pro {
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-posts-vertical-box.php';
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-posts-list.php';
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-posts-single.php';
-
 	}
 
 	/**
@@ -144,7 +143,6 @@ class Gambit_Pro {
 
 		// Add automatic plugin updater from ThemeZee Store API.
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
-
 	}
 
 	/**
@@ -177,7 +175,6 @@ class Gambit_Pro {
 
 		// Add Custom CSS.
 		wp_add_inline_style( 'gambit-pro', $custom_css );
-
 	}
 
 	/**
@@ -196,7 +193,6 @@ class Gambit_Pro {
 		register_widget( 'Gambit_Pro_Magazine_Vertical_Box_Widget' );
 		register_widget( 'Gambit_Pro_Magazine_Posts_List_Widget' );
 		register_widget( 'Gambit_Pro_Magazine_Posts_Single_Widget' );
-
 	}
 
 	/**
@@ -231,16 +227,14 @@ class Gambit_Pro {
 
 			// Setup the updater.
 			$gambit_pro_updater = new Gambit_Pro_Plugin_Updater( GAMBIT_PRO_STORE_API_URL, __FILE__, array(
-					'version' 	=> GAMBIT_PRO_VERSION,
-					'license' 	=> $license_key,
-					'item_name' => GAMBIT_PRO_NAME,
-					'item_id'   => GAMBIT_PRO_PRODUCT_ID,
-					'author' 	=> 'ThemeZee',
-				)
-			);
+				'version'   => GAMBIT_PRO_VERSION,
+				'license'   => $license_key,
+				'item_name' => GAMBIT_PRO_NAME,
+				'item_id'   => GAMBIT_PRO_PRODUCT_ID,
+				'author'    => 'ThemeZee',
+			) );
 
 		endif;
-
 	}
 }
 
