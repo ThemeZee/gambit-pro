@@ -59,7 +59,7 @@ class Gambit_Pro_Footer_Line {
 
 					echo '<nav id="footer-navigation" class="footer-navigation navigation container clearfix" role="navigation">';
 
-						echo '<span class="today">' . current_time( get_option( 'date_format' ) . ' / ' . get_option( 'time_format' ) ) . '</span>';
+						echo '<span class="today">' . date_i18n( get_option( 'date_format' ), current_time( 'timestamp' ) ) . ' / ' . date_i18n( get_option( 'time_format' ), current_time( 'timestamp' ) ) . '</span>';
 
 						wp_nav_menu( array(
 							'theme_location' => 'footer',
