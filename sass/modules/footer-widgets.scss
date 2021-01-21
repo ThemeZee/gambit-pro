@@ -1,0 +1,40 @@
+.footer-widgets-background {
+	padding: 2em 2em 0;
+	background: #252525;
+}
+
+.footer-widgets {
+	margin-right: -2em;
+}
+
+.footer-widget-column {
+	float: left;
+	box-sizing: border-box;
+	padding-right: 2em;
+	width: 25%;
+}
+
+.footer-widgets .widget {
+	border: none;
+	background: none;
+	box-shadow: none;
+	color: #fff;
+}
+
+.footer-widgets .widget-header {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-widgets .widget-title {
+	color: #fff;
+}
+
+.footer-widgets .widget a:link,
+.footer-widgets .widget a:visited {
+	color: #eee;
+}
+
+.footer-widgets .widget a:hover,
+.footer-widgets .widget a:active {
+	color: rgba(255, 255, 255, 0.6);
+}

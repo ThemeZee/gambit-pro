@@ -1,391 +1,3 @@
-/*
- * Gambit Pro CSS
- *
- * Copyright(C) 2020, ThemeZee.com - support@themezee.com
- * License: GNU General Public License v2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- *
- * @package Gambit Pro
- */
-
-/*--------------------------------------------------------------
-# - CSS Variables
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Header Bar
---------------------------------------------------------------*/
-.header-bar-wrap {
-	position: relative;
-	padding: 0 0.5em;
-	background: #1585b5;
-	color: #fff;
-}
-
-.top-navigation-toggle {
-	display: none;
-}
-
-.top-navigation-menu {
-	display: inline;
-	margin: 0;
-	padding: 0;
-	list-style-position: outside;
-	list-style-type: none;
-}
-
-.top-navigation-menu li {
-	float: left;
-}
-
-.top-navigation-menu a {
-	display: block;
-	padding: 0.75em 1em;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 12px;
-	font-size: 0.75rem;
-	-webkit-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-}
-
-.top-navigation-menu > .menu-item-has-children > a::after,
-.top-navigation-menu ul .menu-item-has-children > a::after {
-	display: inline-block;
-	margin: 0.2em 0 0 0.4em;
-	color: #fff;
-	content: "\00BB";
-	vertical-align: top;
-	text-decoration: inherit;
-	font-size: 14px;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.top-navigation-menu a:link,
-.top-navigation-menu a:visited {
-	color: #fff;
-}
-
-.top-navigation-menu a:hover,
-.top-navigation-menu a:active {
-	background: rgba(255, 255, 255, 0.2);
-}
-
-.top-navigation-menu ul {
-	position: absolute;
-	z-index: 9999;
-	display: none;
-	margin: 0;
-	padding: 0;
-	background: #1585b5;
-	list-style-position: outside;
-	list-style-type: none;
-}
-
-.top-navigation-menu ul li {
-	position: relative;
-	float: none;
-}
-
-.top-navigation-menu ul a {
-	box-sizing: border-box;
-	padding: 0.8em 1em;
-	min-width: 250px;
-	min-width: 16rem;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	-webkit-transition: none;
-	transition: none;
-}
-
-.top-navigation-menu ul li:last-child a {
-	border-bottom: none;
-}
-
-.top-navigation-menu ul a:link,
-.top-navigation-menu ul a:visited {
-	text-decoration: none;
-}
-
-.top-navigation-menu li ul ul {
-	top: 0;
-	left: 100%;
-}
-
-.top-navigation-menu li.menu-item-has-children:hover > ul,
-.top-navigation-menu li.menu-item-has-children[aria-expanded="true"] > ul {
-	display: block;
-}
-
-.top-navigation-menu li.current-menu-item > a {
-	text-decoration: underline;
-}
-
-.top-navigation-menu li.current-menu-item > a:after {
-	text-decoration: none;
-}
-
-.header-bar .social-icons-navigation {
-	float: right;
-}
-
-.header-bar .social-icons-menu li a {
-	padding: 0.7em 0.75em 0.6em;
-}
-
-.header-bar .social-icons-menu li a::before {
-	font-size: 18px;
-}
-
-.header-bar .social-icons-menu li a:hover::before {
-	text-decoration: none;
-}
-
-.header-bar .social-icons-menu li a:hover,
-.header-bar .social-icons-menu li a:active {
-	background: #252525;
-}
-
-/*--------------------------------------------------------------
-# Magazine Widgets
---------------------------------------------------------------*/
-
-/* Magazine Posts Boxed Widget Horizontal Style */
-.widget-magazine-posts .magazine-horizontal-box .large-post .wp-post-image {
-	float: left;
-	box-sizing: border-box;
-	margin: 0;
-	padding-right: 1em;
-	width: 50%;
-}
-
-.widget-magazine-posts .magazine-horizontal-box .large-post .post-content {
-	float: right;
-	box-sizing: border-box;
-	padding-left: 1em;
-	width: 50%;
-}
-
-.widget-magazine-posts .magazine-horizontal-box .medium-posts {
-	margin-right: -2em;
-}
-
-/* Magazine Posts Boxed Widget Vertical Style */
-.widget-magazine-posts .magazine-vertical-box .large-post {
-	float: left;
-	box-sizing: border-box;
-	margin-bottom: 1em;
-	padding-right: 1em;
-	width: 50%;
-}
-
-.widget-magazine-posts .magazine-vertical-box .small-posts {
-	box-sizing: border-box;
-	margin-left: 50%;
-	padding-left: 1em;
-	width: 50%;
-}
-
-/* Magazine Posts List Widget */
-.widget-magazine-posts-list .type-post {
-	margin: 0 0 1.5em;
-}
-
-.widget-magazine-posts-list .type-post .wp-post-image {
-	float: left;
-	margin: 0 1.5em 0 0;
-	padding: 0.3em 0;
-	max-width: 34%;
-}
-
-.widget-magazine-posts-list .type-post .entry-title {
-	font-size: 20px;
-	font-size: 1.25rem;
-}
-
-/*--------------------------------------------------------------
-# Footer Widgets
---------------------------------------------------------------*/
-.footer-widgets-background {
-	padding: 2em 2em 0;
-	background: #252525;
-}
-
-.footer-widgets {
-	margin-right: -2em;
-}
-
-.footer-widget-column {
-	float: left;
-	box-sizing: border-box;
-	padding-right: 2em;
-	width: 25%;
-}
-
-.footer-widgets .widget {
-	border: none;
-	background: none;
-	box-shadow: none;
-	color: #fff;
-}
-
-.footer-widgets .widget-header {
-	background: rgba(255, 255, 255, 0.1);
-}
-
-.footer-widgets .widget-title {
-	color: #fff;
-}
-
-.footer-widgets .widget a:link,
-.footer-widgets .widget a:visited {
-	color: #eee;
-}
-
-.footer-widgets .widget a:hover,
-.footer-widgets .widget a:active {
-	color: rgba(255, 255, 255, 0.6);
-}
-
-/*--------------------------------------------------------------
-# Footer Menu
---------------------------------------------------------------*/
-.footer-navigation-wrap {
-	margin-bottom: -4px;
-	background: #252525;
-}
-
-.footer-navigation-background {
-	margin-bottom: -4px;
-	background: rgba(255, 255, 255, 0.1);
-}
-
-.footer-navigation {
-	padding: 0 1em;
-}
-
-.footer-navigation .today {
-	display: inline-block;
-	margin: 0 0 0 1em;
-	padding: 0.75em 0;
-	color: #fff;
-	font-weight: bold;
-	font-size: 13px;
-	font-size: 0.8125rem;
-}
-
-.footer-navigation-toggle {
-	display: none;
-}
-
-.footer-navigation-menu {
-	position: relative;
-	display: inline;
-	float: right;
-	margin: 0;
-	padding: 0;
-	list-style-position: outside;
-	list-style-type: none;
-}
-
-.footer-navigation-menu li {
-	position: relative;
-	float: left;
-}
-
-.footer-navigation-menu a {
-	display: block;
-	padding: 0.75em 1em;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	-webkit-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-}
-
-.footer-navigation-menu a:link,
-.footer-navigation-menu a:visited {
-	color: #fff;
-}
-
-.footer-navigation-menu a:hover,
-.footer-navigation-menu a:active {
-	background: rgba(255, 255, 255, 0.2);
-}
-
-/*--------------------------------------------------------------
-# Footer Social Menu
---------------------------------------------------------------*/
-.site-footer-wrap {
-	border-top: 4px solid rgba(255, 255, 255, 0.1);
-}
-
-.site-footer .social-icons-navigation {
-	float: right;
-	margin: 0.25em 1em 0;
-}
-
-.site-footer .social-icons-menu li a {
-	padding: 1em;
-}
-
-.site-footer .social-icons-menu li a:before {
-	text-decoration: none;
-	font-size: 18px;
-}
-
-.site-footer .social-icons-menu li a:hover::before {
-	color: rgba(255, 255, 255, 0.6);
-	text-decoration: none;
-}
-
-/*--------------------------------------------------------------
-# Scroll to Top Button
---------------------------------------------------------------*/
-.scroll-to-top-button {
-	z-index: 9999;
-	width: 40px;
-	height: 40px;
-	display: inline;
-	position: fixed;
-	cursor: pointer;
-	margin: 0 auto;
-	padding: 0;
-	right: 1em;
-	bottom: 1em;
-	background: #1585b5;
-	transition: none;
-}
-
-.scroll-to-top-button:focus,
-.scroll-to-top-button:active {
-	background: #1585b5;
-}
-
-.scroll-to-top-button:hover {
-	background: #252525;
-}
-
-.scroll-to-top-button:after {
-	display: inline-block;
-	margin: 0 0 0 2px;
-	color: #fff;
-	content: '\f432';
-	vertical-align: top;
-	text-decoration: inherit;
-	font-size: 26px;
-	font-family: 'Genericons';
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-/*--------------------------------------------------------------
-# Media Queries
---------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 ## Desktop X-Large ( < 1200px )
 --------------------------------------------------------------*/
@@ -404,7 +16,7 @@
 }
 
 @media only screen and (max-width: 70em) {
-	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link  {
 		display: none;
 	}
 }
@@ -430,6 +42,7 @@
 ## Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
+
 	/*** Mobile Top Navigation ***/
 	/* Reset */
 	.top-navigation-menu {
@@ -469,6 +82,7 @@
 		display: none;
 	}
 
+
 	/* Top Navigation Toggle */
 	.top-navigation-toggle {
 		display: inline-block;
@@ -499,7 +113,7 @@
 	}
 
 	.top-navigation-toggle:hover {
-		background: rgba(0, 0, 0, 0.25);
+		background: rgba(0,0,0,0.25);
 	}
 
 	/* Top Navigation Menu */
@@ -507,14 +121,14 @@
 		display: none;
 		float: left;
 		width: 100%;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1px solid rgba(255,255,255,0.1);
 	}
 
 	.top-navigation-menu a {
 		display: block;
 		clear: left;
 		padding: 1em 1.25em;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255,255,255,0.1);
 		font-size: 13px;
 		font-size: 0.8125rem;
 	}
@@ -535,7 +149,7 @@
 	}
 
 	.top-navigation-menu ul li:last-child a {
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255,255,255,0.1);
 	}
 
 	.top-navigation-menu ul ul a {
@@ -568,7 +182,7 @@
 	}
 
 	.top-navigation-menu .submenu-dropdown-toggle:hover:before {
-		color: rgba(255, 255, 255, 0.6);
+		color: rgba(255,255,255,0.6);
 	}
 
 	.top-navigation-menu .submenu-dropdown-toggle.active:before {
@@ -639,6 +253,7 @@
 ## Mobile Extra Large ( < 640px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 40em) {
+
 	/* Magazine Post Widgets */
 	.widget-magazine-posts .magazine-horizontal-box .large-post .wp-post-image,
 	.widget-magazine-posts .magazine-vertical-box .large-post {
