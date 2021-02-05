@@ -108,7 +108,7 @@ class Gambit_Pro_Custom_Fonts {
 
 			$custom_css .= '
 				/* Navigation Font Setting */
-				.main-navigation-menu a {
+				.main-navigation ul {
 					font-family: ' . self::get_font_family( $theme_options['navi_font'] ) . ';
 				}
 			';

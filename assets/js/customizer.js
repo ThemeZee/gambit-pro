@@ -18,7 +18,7 @@
 	/* Top Navigation Color Option */
 	wp.customize( 'gambit_theme_options[top_navi_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.header-bar-wrap, .top-navigation-menu ul' )
+			$( '.header-bar-wrap, .top-navigation ul ul' )
 				.css( 'background', newval );
 		} );
 	} );
@@ -109,7 +109,7 @@
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.main-navigation-menu a' )
+			$( '.main-navigation ul' )
 				.css( 'font-family', newFont );
 
 		} );

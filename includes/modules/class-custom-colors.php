@@ -62,7 +62,7 @@ class Gambit_Pro_Custom_Colors {
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
 				.header-bar-wrap,
-				.top-navigation-menu ul {
+				.top-navigation ul ul {
 					background: ' . $theme_options['top_navi_color'] . ';
 				}
 			';
@@ -73,9 +73,11 @@ class Gambit_Pro_Custom_Colors {
 
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
-				.main-navigation-menu a:hover,
-				.main-navigation-menu a:active,
-				.main-navigation-menu li.current-menu-item > a {
+				.main-navigation ul a:hover,
+				.main-navigation ul a:active,
+				.main-navigation ul li.current-menu-item > a,
+				.primary-menu-toggle:hover,
+				.primary-menu-toggle:active {
 					background: ' . $theme_options['navi_primary_color'] . ';
 				}
 			';
@@ -88,8 +90,8 @@ class Gambit_Pro_Custom_Colors {
 
 				/* Secondary Navigation Color Setting */
 				.primary-navigation-wrap,
-				.main-navigation-toggle,
-				.main-navigation-menu ul {
+				.primary-menu-toggle,
+				.main-navigation ul ul {
 					background: ' . $theme_options['navi_secondary_color'] . ';
 				}
 			';
