@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gambit Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2018-04-13 09:58+0200\n"
+"POT-Creation-Date: 2021-02-11 16:17+0100\n"
 "PO-Revision-Date: 2016-08-15 15:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: gambit-pro.php:210
+#: gambit-pro.php:206
 msgid "Settings"
 msgstr ""
 
@@ -149,86 +149,92 @@ msgstr ""
 msgid "Activate License"
 msgstr ""
 
-#: includes/customizer/class-customize-font-control.php:58
+#: includes/customizer/class-customize-font-control.php:51
 msgid "Previous Font"
 msgstr ""
 
-#: includes/customizer/class-customize-font-control.php:59
+#: includes/customizer/class-customize-font-control.php:52
 msgid "Next Font"
 msgstr ""
 
-#: includes/customizer/class-customize-font-control.php:60
+#: includes/customizer/class-customize-font-control.php:53
 msgctxt "default font button"
 msgid "Default"
 msgstr ""
 
-#: includes/customizer/class-customize-font-control.php:100
-msgid "Local Fonts"
-msgstr ""
-
-#: includes/customizer/class-customize-font-control.php:108
-msgid "Google Web Fonts"
-msgstr ""
-
-#: includes/modules/class-custom-colors.php:303
-msgid "Theme Colors"
-msgstr ""
-
-#: includes/modules/class-custom-colors.php:322
-msgctxt "color setting"
-msgid "Top Navigation"
-msgstr ""
-
-#: includes/modules/class-custom-colors.php:339
-msgctxt "color setting"
-msgid "Navigation (primary)"
-msgstr ""
-
 #: includes/modules/class-custom-colors.php:356
-msgctxt "color setting"
-msgid "Navigation (secondary)"
+msgid "Theme Colors"
 msgstr ""
 
 #: includes/modules/class-custom-colors.php:373
 msgctxt "color setting"
+msgid "Top Navigation"
+msgstr ""
+
+#: includes/modules/class-custom-colors.php:389
+msgctxt "color setting"
+msgid "Navigation (primary)"
+msgstr ""
+
+#: includes/modules/class-custom-colors.php:405
+msgctxt "color setting"
+msgid "Navigation (secondary)"
+msgstr ""
+
+#: includes/modules/class-custom-colors.php:421
+msgctxt "color setting"
 msgid "Content (primary)"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:390
+#: includes/modules/class-custom-colors.php:437
 msgctxt "color setting"
 msgid "Content (secondary)"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:407
+#: includes/modules/class-custom-colors.php:453
 msgctxt "color setting"
 msgid "Widget Titles"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:424
+#: includes/modules/class-custom-colors.php:469
 msgctxt "color setting"
 msgid "Footer"
 msgstr ""
 
-#: includes/modules/class-custom-fonts.php:209
-msgid "Theme Fonts"
+#: includes/modules/class-custom-fonts.php:214
+msgid "Typography"
 msgstr ""
 
-#: includes/modules/class-custom-fonts.php:228
-msgid "Base Font"
+#: includes/modules/class-custom-fonts.php:232
+msgid "Body Font"
 msgstr ""
 
-#: includes/modules/class-custom-fonts.php:244
-msgctxt "font setting"
+#: includes/modules/class-custom-fonts.php:249
+msgctxt "Font Setting"
 msgid "Headings"
 msgstr ""
 
-#: includes/modules/class-custom-fonts.php:260
-msgctxt "font setting"
+#: includes/modules/class-custom-fonts.php:265
+#: includes/modules/class-custom-fonts.php:314
+#: includes/modules/class-custom-fonts.php:363
+msgctxt "Font Setting"
+msgid "Bold"
+msgstr ""
+
+#: includes/modules/class-custom-fonts.php:281
+#: includes/modules/class-custom-fonts.php:330
+#: includes/modules/class-custom-fonts.php:379
+msgctxt "Font Setting"
+msgid "Uppercase"
+msgstr ""
+
+#: includes/modules/class-custom-fonts.php:298
+msgctxt "Font Setting"
 msgid "Navigation"
 msgstr ""
 
-#: includes/modules/class-custom-fonts.php:276
-msgctxt "font setting"
+#: includes/modules/class-custom-fonts.php:347
+msgctxt "Font Setting"
 msgid "Widget Titles"
 msgstr ""
 
@@ -284,11 +290,19 @@ msgstr ""
 msgid "Appears on footer on the right hand side."
 msgstr ""
 
-#: includes/modules/class-header-bar.php:108
+#: includes/modules/class-header-bar.php:78
+msgid "Menu"
+msgstr ""
+
+#: includes/modules/class-header-bar.php:83
+msgid "Secondary Menu"
+msgstr ""
+
+#: includes/modules/class-header-bar.php:131
 msgid "Top Navigation"
 msgstr ""
 
-#: includes/modules/class-header-bar.php:109
+#: includes/modules/class-header-bar.php:132
 msgid "Header Social Icons"
 msgstr ""
 
@@ -304,11 +318,11 @@ msgstr ""
 msgid "Header Spacing (default: 20)"
 msgstr ""
 
-#: includes/modules/class-scroll-to-top.php:65
+#: includes/modules/class-scroll-to-top.php:67
 msgid "Scroll to Top"
 msgstr ""
 
-#: includes/modules/class-scroll-to-top.php:81
+#: includes/modules/class-scroll-to-top.php:83
 msgid "Display Scroll to Top Button"
 msgstr ""
 
