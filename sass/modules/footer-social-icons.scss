@@ -20,3 +20,16 @@
 	color: rgba(255, 255, 255, 0.6);
 	text-decoration: none;
 }
+
+@media only screen and (max-width: 40em) {
+	.site-footer .social-icons-navigation {
+		float: left;
+		margin: 0 1em 1em;
+	}
+}
+
+@media only screen and (min-width: 85em) {
+	.wide-layout .site-footer .social-icons-navigation {
+		margin: 0.25em 0 0;
+	}
+}

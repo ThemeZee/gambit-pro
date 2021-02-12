@@ -62,3 +62,56 @@
 	background: rgba(255, 255, 255, 0.2);
 }
 
+@media only screen and (max-width: 60em) {
+
+	.footer-navigation {
+		text-align: center;
+		padding: 0;
+	}
+
+	.footer-navigation .today {
+		display: none;
+	}
+
+	.footer-navigation-menu {
+		float: none;
+	}
+
+	.footer-navigation-menu li {
+		float: none;
+		display: inline-block;
+	}
+
+	.site-footer .site-info {
+		max-width: 80%;
+	}
+}
+
+@media only screen and (max-width: 50em) {
+	.site-footer .site-info {
+		max-width: 60%;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.footer-navigation-menu li {
+		display: block;
+	}
+
+	.site-footer .site-info {
+		display: block;
+		float: none;
+		padding-bottom: 0.5em;
+		max-width: 100%;
+	}
+}
+
+@media only screen and (min-width: 85em) {
+	.wide-layout .footer-navigation {
+		padding: 0;
+	}
+
+	.wide-layout .footer-navigation .today {
+		margin: 0;
+	}
+}
