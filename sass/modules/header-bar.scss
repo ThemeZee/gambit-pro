@@ -61,6 +61,9 @@
 	color: #fff;
 	text-decoration: none;
 	@include font-size(13);
+	@include font-family(--navi-font);
+	@include font-weight(--navi-font-weight);
+	@include text-transform(--navi-text-transform);
 	text-align: left;
 	align-items: center;
 }
@@ -105,8 +108,9 @@
 	color: #fff;
 	list-style: none;
 	@include font-size(13);
-	font-weight: bold;
-	text-transform: uppercase;
+	@include font-family(--navi-font);
+	@include font-weight(--navi-font-weight);
+	@include text-transform(--navi-text-transform);
 }
 
 .top-navigation ul li {

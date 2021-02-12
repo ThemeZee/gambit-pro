@@ -74,11 +74,11 @@ class Gambit_Pro_Customizer {
 			'title_is_bold'             => true,
 			'title_is_uppercase'        => false,
 			'navi_font'                 => 'Oxygen',
-			'navi_is_bold'              => false,
-			'navi_is_uppercase'         => false,
+			'navi_is_bold'              => true,
+			'navi_is_uppercase'         => true,
 			'widget_title_font'         => 'Oxygen',
-			'widget_title_is_bold'      => false,
-			'widget_title_is_uppercase' => false,
+			'widget_title_is_bold'      => true,
+			'widget_title_is_uppercase' => true,
 		);
 
 		return $default_options;
