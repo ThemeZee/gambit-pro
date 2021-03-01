@@ -32,9 +32,6 @@ class Gambit_Pro_Custom_Colors {
 		// Add Custom Color CSS code to custom stylesheet output.
 		add_filter( 'gambit_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
 
-		// Add Custom Color CSS code to the Gutenberg editor.
-		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'custom_editor_colors_css' ) );
-
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
 	}
@@ -53,11 +50,15 @@ class Gambit_Pro_Custom_Colors {
 		// Get Default Fonts from settings.
 		$default_options = Gambit_Pro_Customizer::get_default_options();
 
+		// Color Variables.
+		$color_variables = '';
+
 		// Check if we are in Customizer Preview.
 		$is_customize_preview = is_customize_preview();
 
 		// Set Top Navigation Color.
-		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] || $is_customize_preview ) {
+		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] ) {
+			$color_variables .= '--page-background-color: ' . $theme_options['page_bg_color'] . ';';
 
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
@@ -69,7 +70,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Primary Navigation Color.
-		if ( $theme_options['navi_primary_color'] !== $default_options['navi_primary_color'] || $is_customize_preview ) {
+		if ( $theme_options['navi_primary_color'] !== $default_options['navi_primary_color'] ) {
 
 			$custom_css .= '
 				/* Primary Navigation Color Setting */
@@ -84,7 +85,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Secondary Navigation Color.
-		if ( $theme_options['navi_secondary_color'] !== $default_options['navi_secondary_color'] || $is_customize_preview ) {
+		if ( $theme_options['navi_secondary_color'] !== $default_options['navi_secondary_color'] ) {
 
 			$custom_css .= '
 
@@ -98,7 +99,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Primary Content Color.
-		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] || $is_customize_preview ) {
+		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] ) {
 
 			$custom_css .= '
 				/* Content Primary Color Setting */
@@ -174,7 +175,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Link Color.
-		if ( $theme_options['content_secondary_color'] !== $default_options['content_secondary_color'] || $is_customize_preview ) {
+		if ( $theme_options['content_secondary_color'] !== $default_options['content_secondary_color'] ) {
 
 			$custom_css .= '
 				/* Content Secondary Color Setting */
@@ -243,7 +244,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Primary Hover Content Color.
-		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] || $is_customize_preview ) {
+		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] ) {
 
 			$custom_css .= '
 				/* Content Primary Hover Color Setting */
@@ -263,7 +264,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Widget Title Color.
-		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] || $is_customize_preview ) {
+		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {
 
 			$custom_css .= '
 				/* Widget Title Color Setting */
@@ -276,7 +277,7 @@ class Gambit_Pro_Custom_Colors {
 		}
 
 		// Set Footer Color.
-		if ( $theme_options['footer_color'] !== $default_options['footer_color'] || $is_customize_preview ) {
+		if ( $theme_options['footer_color'] !== $default_options['footer_color'] ) {
 
 			$custom_css .= '
 				/* Footer Color Setting */
@@ -288,57 +289,12 @@ class Gambit_Pro_Custom_Colors {
 			';
 		}
 
+		// Set Color Variables.
+		if ( '' !== $color_variables ) {
+			$custom_css .= ':root {' . $color_variables . '}';
+		}
+
 		return $custom_css;
-	}
-
-	/**
-	 * Adds Color CSS styles in the Gutenberg Editor to override default colors
-	 *
-	 * @return void
-	 */
-	static function custom_editor_colors_css() {
-
-		// Get Theme Options from Database.
-		$theme_options = Gambit_Pro_Customizer::get_theme_options();
-
-		// Get Default Fonts from settings.
-		$default_options = Gambit_Pro_Customizer::get_default_options();
-
-		// Set Primary Color.
-		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] ) {
-
-			$custom_css = '
-				.has-primary-color,
-				.edit-post-visual-editor .editor-block-list__block a {
-					color: ' . $theme_options['content_primary_color'] . ';
-				}
-				.has-primary-background-color {
-					background-color: ' . $theme_options['content_primary_color'] . ';
-				}
-			';
-
-			wp_add_inline_style( 'gambit-editor-styles', $custom_css );
-		}
-	}
-
-	/**
-	 * Change primary color in Gutenberg Editor.
-	 *
-	 * @return array $editor_settings
-	 */
-	static function change_primary_color( $color ) {
-		// Get Theme Options from Database.
-		$theme_options = Gambit_Pro_Customizer::get_theme_options();
-
-		// Get Default Fonts from settings.
-		$default_options = Gambit_Pro_Customizer::get_default_options();
-
-		// Set Primary Color.
-		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] ) {
-			$color = $theme_options['content_primary_color'];
-		}
-
-		return $color;
 	}
 
 	/**
@@ -496,4 +452,3 @@ class Gambit_Pro_Custom_Colors {
 
 // Run Class.
 add_action( 'init', array( 'Gambit_Pro_Custom_Colors', 'setup' ) );
-add_filter( 'gambit_primary_color', array( 'Gambit_Pro_Custom_Colors', 'change_primary_color' ) );
