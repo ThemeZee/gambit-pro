@@ -1,5 +1,6 @@
 .site-footer-wrap {
-	border-top: 4px solid rgba(255, 255, 255, 0.1);
+	border-top: 4px solid;
+	@include border-color(--footer-light-background-color);
 }
 
 .site-footer .social-icons-navigation {
@@ -11,13 +12,13 @@
 	padding: 1em;
 }
 
-.site-footer .social-icons-menu li a:before {
+.site-footer .social-icons-menu li a::before {
 	text-decoration: none;
 	font-size: 18px;
 }
 
 .site-footer .social-icons-menu li a:hover::before {
-	color: rgba(255, 255, 255, 0.6);
+	@include color(--footer-link-hover-color);
 	text-decoration: none;
 }
 

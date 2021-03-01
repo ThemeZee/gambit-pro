@@ -1,6 +1,6 @@
 .footer-widgets-background {
 	padding: 2em 2em 0;
-	background: #252525;
+	@include background(--footer-background-color);
 }
 
 .footer-widgets {
@@ -18,25 +18,25 @@
 	border: none;
 	background: none;
 	box-shadow: none;
-	color: #fff;
+	@include color(--footer-text-color);
 }
 
 .footer-widgets .widget-header {
-	background: rgba(255, 255, 255, 0.1);
+	@include background(--footer-light-background-color);
 }
 
 .footer-widgets .widget-title {
-	color: #fff;
+	@include color(--footer-text-color);
 }
 
 .footer-widgets .widget a:link,
 .footer-widgets .widget a:visited {
-	color: #eee;
+	@include color(--footer-link-color);
 }
 
 .footer-widgets .widget a:hover,
 .footer-widgets .widget a:active {
-	color: rgba(255, 255, 255, 0.6);
+	@include color(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 80em) {

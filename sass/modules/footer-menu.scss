@@ -1,11 +1,11 @@
 .footer-navigation-wrap {
 	margin-bottom: -4px;
-	background: #252525;
+	@include background(--footer-background-color);
 }
 
 .footer-navigation-background {
 	margin-bottom: -4px;
-	background: rgba(255, 255, 255, 0.1);
+	@include background(--footer-light-background-color);
 }
 
 .footer-navigation {
@@ -16,7 +16,7 @@
 	display: inline-block;
 	margin: 0 0 0 1em;
 	padding: 0.75em 0;
-	color: #fff;
+	@include color(--footer-text-color);
 	font-weight: bold;
 	font-size: 13px;
 	font-size: 0.8125rem;
@@ -54,12 +54,12 @@
 
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
-	color: #fff;
+	@include color(--footer-link-color);
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	background: rgba(255, 255, 255, 0.2);
+	@include background(--footer-medium-background-color);
 }
 
 @media only screen and (max-width: 60em) {
