@@ -28,7 +28,7 @@
 .scroll-to-top-button::after {
 	display: inline-block;
 	margin: 0 0 0 2px;
-	color: #fff;
+	color: currentColor;
 	content: '\f432';
 	vertical-align: top;
 	text-decoration: inherit;

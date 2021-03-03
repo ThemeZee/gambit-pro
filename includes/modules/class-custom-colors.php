@@ -58,235 +58,86 @@ class Gambit_Pro_Custom_Colors {
 
 		// Set Top Navigation Color.
 		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] ) {
-			$color_variables .= '--page-background-color: ' . $theme_options['page_bg_color'] . ';';
+			$color_variables .= '--header-bar-background-color: ' . $theme_options['top_navi_color'] . ';';
 
-			$custom_css .= '
-				/* Primary Navigation Color Setting */
-				.header-bar-wrap,
-				.top-navigation ul ul {
-					background: ' . $theme_options['top_navi_color'] . ';
-				}
-			';
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['top_navi_color'] ) ) {
+				$color_variables .= '--header-bar-link-color: #151515;';
+				$color_variables .= '--header-bar-link-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--header-bar-border-color: rgba(0, 0, 0, 0.1);';
+			}
 		}
 
 		// Set Primary Navigation Color.
 		if ( $theme_options['navi_primary_color'] !== $default_options['navi_primary_color'] ) {
+			$color_variables .= '--navi-primary-color: ' . $theme_options['navi_primary_color'] . ';';
 
-			$custom_css .= '
-				/* Primary Navigation Color Setting */
-				.main-navigation ul a:hover,
-				.main-navigation ul a:active,
-				.main-navigation ul li.current-menu-item > a,
-				.primary-menu-toggle:hover,
-				.primary-menu-toggle:active {
-					background: ' . $theme_options['navi_primary_color'] . ';
-				}
-			';
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['navi_primary_color'] ) ) {
+				$color_variables .= '--navi-primary-text-color: #151515;';
+			}
 		}
 
 		// Set Secondary Navigation Color.
 		if ( $theme_options['navi_secondary_color'] !== $default_options['navi_secondary_color'] ) {
+			$color_variables .= '--navi-secondary-color: ' . $theme_options['navi_secondary_color'] . ';';
 
-			$custom_css .= '
-
-				/* Secondary Navigation Color Setting */
-				.primary-navigation-wrap,
-				.primary-menu-toggle,
-				.main-navigation ul ul {
-					background: ' . $theme_options['navi_secondary_color'] . ';
-				}
-			';
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['navi_secondary_color'] ) ) {
+				$color_variables .= '--navi-secondary-text-color: #151515;';
+				$color_variables .= '--navi-secondary-text-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--navi-border-color: rgba(0, 0, 0, 0.1);';
+			}
 		}
 
 		// Set Primary Content Color.
 		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] ) {
+			$color_variables .= '--link-color: ' . $theme_options['content_primary_color'] . ';';
+			$color_variables .= '--button-color: ' . $theme_options['content_primary_color'] . ';';
+			$color_variables .= '--site-title-color: ' . $theme_options['content_primary_color'] . ';';
+			$color_variables .= '--title-hover-color: ' . $theme_options['content_primary_color'] . ';';
 
-			$custom_css .= '
-				/* Content Primary Color Setting */
-				a,
-				a:link,
-				a:visited,
-				.site-title,
-				.site-title a:link,
-				.site-title a:visited,
-				.has-primary-color {
-					color: ' . $theme_options['content_primary_color'] . ';
-				}
-
-				a:hover,
-				a:focus,
-				a:active,
-				.site-title a:hover,
-				.site-title a:active {
-				    color: #252525;
-				}
-
-				button,
-				input[type="button"],
-				input[type="reset"],
-				input[type="submit"],
-				.more-link,
-				.entry-tags .meta-tags a,
-				.widget_tag_cloud .tagcloud a,
-				.pagination .current,
-				.infinite-scroll #infinite-handle span,
-				.tzwb-social-icons .social-icons-menu li a,
-				.post-slider-controls .zeeflex-direction-nav a,
-				.scroll-to-top-button,
-				.scroll-to-top-button:focus,
-				.scroll-to-top-button:active {
-				    color: #fff;
-					background: ' . $theme_options['content_primary_color'] . ';
-				}
-
-				button:hover,
-				input[type="button"]:hover,
-				input[type="reset"]:hover,
-				input[type="submit"]:hover,
-				button:focus,
-				input[type="button"]:focus,
-				input[type="reset"]:focus,
-				input[type="submit"]:focus,
-				button:active,
-				input[type="button"]:active,
-				input[type="reset"]:active,
-				input[type="submit"]:active,
-				.more-link:hover,
-				.more-link:focus,
-				.more-link:active,
-				.entry-tags .meta-tags a:hover,
-				.entry-tags .meta-tags a:focus,
-				.entry-tags .meta-tags a:active,
-				.widget_tag_cloud .tagcloud a:hover,
-				.widget_tag_cloud .tagcloud a:focus,
-				.widget_tag_cloud .tagcloud a:active,
-				.infinite-scroll #infinite-handle span:hover,
-				.infinite-scroll #infinite-handle span:active,
-				.tzwb-social-icons .social-icons-menu li a:hover,
-				.tzwb-social-icons .social-icons-menu li a:focus,
-				.tzwb-social-icons .social-icons-menu li a:active {
-				    background: #252525;
-				}
-
-				.has-primary-background-color {
-					background-color: ' . $theme_options['content_primary_color'] . ';
-				}
-			';
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['content_primary_color'] ) ) {
+				$color_variables .= '--button-text-color: #151515;';
+			}
 		}
 
-		// Set Link Color.
+		// Set Secondary Content Color.
 		if ( $theme_options['content_secondary_color'] !== $default_options['content_secondary_color'] ) {
+			$color_variables .= '--link-hover-color: ' . $theme_options['content_secondary_color'] . ';';
+			$color_variables .= '--button-hover-color: ' . $theme_options['content_secondary_color'] . ';';
+			$color_variables .= '--site-title-hover-color: ' . $theme_options['content_secondary_color'] . ';';
+			$color_variables .= '--title-color: ' . $theme_options['content_secondary_color'] . ';';
 
-			$custom_css .= '
-				/* Content Secondary Color Setting */
-				a:hover,
-				a:focus,
-				a:active,
-				.site-title a:hover,
-				.site-title a:active,
-				.page-title,
-				.entry-title,
-				.entry-title a:link,
-				.entry-title a:visited {
-					color: ' . $theme_options['content_secondary_color'] . ';
-				}
-
-				.entry-title a:hover,
-				.entry-title a:active {
-				    color: #1585b5;
-				}
-
-				button:hover,
-				input[type="button"]:hover,
-				input[type="reset"]:hover,
-				input[type="submit"]:hover,
-				button:focus,
-				input[type="button"]:focus,
-				input[type="reset"]:focus,
-				input[type="submit"]:focus,
-				button:active,
-				input[type="button"]:active,
-				input[type="reset"]:active,
-				input[type="submit"]:active,
-				.more-link:hover,
-				.more-link:focus,
-				.more-link:active,
-				.entry-tags .meta-tags a:hover,
-				.entry-tags .meta-tags a:focus,
-				.entry-tags .meta-tags a:active,
-				.widget_tag_cloud .tagcloud a:hover,
-				.widget_tag_cloud .tagcloud a:focus,
-				.widget_tag_cloud .tagcloud a:active,
-				.pagination a:link,
-				.pagination a:visited,
-				.infinite-scroll #infinite-handle span:hover,
-				.infinite-scroll #infinite-handle span:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:link,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:visited,
-				.tzwb-social-icons .social-icons-menu li a:hover,
-				.tzwb-social-icons .social-icons-menu li a:focus,
-				.tzwb-social-icons .social-icons-menu li a:active,
-				.post-slider-controls .zeeflex-direction-nav a:hover,
-				.post-slider-controls .zeeflex-direction-nav a:active,
-				.scroll-to-top-button:hover {
-					background: ' . $theme_options['content_secondary_color'] . ';
-				}
-
-				.pagination a:hover,
-				.pagination a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-				    background: #1585b5;
-				}
-			';
-		}
-
-		// Set Primary Hover Content Color.
-		if ( $theme_options['content_primary_color'] !== $default_options['content_primary_color'] ) {
-
-			$custom_css .= '
-				/* Content Primary Hover Color Setting */
-				.entry-title a:hover,
-				.entry-title a:active {
-					color: ' . $theme_options['content_primary_color'] . ';
-				}
-
-				.pagination a:hover,
-				.pagination a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab {
-					background: ' . $theme_options['content_primary_color'] . ';
-				}
-			';
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['content_secondary_color'] ) ) {
+				$color_variables .= '--button-hover-text-color: #151515;';
+			}
 		}
 
 		// Set Widget Title Color.
 		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {
+			$color_variables .= '--widget-title-color: ' . $theme_options['widget_title_color'] . ';';
 
-			$custom_css .= '
-				/* Widget Title Color Setting */
-				.widget-header,
-				.page-header {
-					background: ' . $theme_options['widget_title_color'] . ';
-				}
-				';
-
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['widget_title_color'] ) ) {
+				$color_variables .= '--widget-title-text-color: #151515;';
+			}
 		}
 
 		// Set Footer Color.
 		if ( $theme_options['footer_color'] !== $default_options['footer_color'] ) {
+			$color_variables .= '--footer-background-color: ' . $theme_options['footer_color'] . ';';
 
-			$custom_css .= '
-				/* Footer Color Setting */
-				.site-footer-wrap,
-				.footer-navigation-wrap,
-				.footer-widgets-background {
-					background: ' . $theme_options['footer_color'] . ';
-				}
-			';
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['footer_color'] ) ) {
+				$color_variables .= '--footer-light-background-color: rgba(0, 0, 0, 0.05);';
+				$color_variables .= '--footer-medium-background-color: rgba(0, 0, 0, 0.15);';
+				$color_variables .= '--footer-text-color: #151515;';
+				$color_variables .= '--footer-link-color: #151515;';
+				$color_variables .= '--footer-link-hover-color: rgba(0, 0, 0, 0.5);';
+			}
 		}
 
 		// Set Color Variables.
@@ -447,6 +298,42 @@ class Gambit_Pro_Custom_Colors {
 				),
 			) );
 		}
+	}
+
+	/**
+	 * Returns color brightness.
+	 *
+	 * @param int Number of brightness.
+	 */
+	static function get_color_brightness( $hex_color ) {
+
+		// Remove # string.
+		$hex_color = str_replace( '#', '', $hex_color );
+
+		// Convert into RGB.
+		$r = hexdec( substr( $hex_color, 0, 2 ) );
+		$g = hexdec( substr( $hex_color, 2, 2 ) );
+		$b = hexdec( substr( $hex_color, 4, 2 ) );
+
+		return ( ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000 );
+	}
+
+	/**
+	 * Check if the color is light.
+	 *
+	 * @param bool True if color is light.
+	 */
+	static function is_color_light( $hex_color ) {
+		return ( self::get_color_brightness( $hex_color ) > 130 );
+	}
+
+	/**
+	 * Check if the color is dark.
+	 *
+	 * @param bool True if color is dark.
+	 */
+	static function is_color_dark( $hex_color ) {
+		return ( self::get_color_brightness( $hex_color ) <= 130 );
 	}
 }
 

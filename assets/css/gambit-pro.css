@@ -50,6 +50,8 @@
 
 .header-bar .social-icons-menu li a::before {
 	font-size: 18px;
+	color: #fff;
+	color: var(--header-bar-link-color);
 }
 
 .header-bar .social-icons-menu li a:hover::before {
@@ -730,6 +732,8 @@
 .site-footer .social-icons-menu li a::before {
 	text-decoration: none;
 	font-size: 18px;
+	color: #fff;
+	color: var(--footer-link-color);
 }
 
 .site-footer .social-icons-menu li a:hover::before {
@@ -790,7 +794,7 @@
 .scroll-to-top-button::after {
 	display: inline-block;
 	margin: 0 0 0 2px;
-	color: #fff;
+	color: currentColor;
 	content: '\f432';
 	vertical-align: top;
 	text-decoration: inherit;
