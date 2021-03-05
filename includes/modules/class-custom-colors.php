@@ -155,9 +155,6 @@ class Gambit_Pro_Custom_Colors {
 	 */
 	static function color_settings( $wp_customize ) {
 
-		// Set Transport method. Only use postMessage if selective refresh is supported.
-		$transport = isset( $wp_customize->selective_refresh ) ? 'postMessage' : 'refresh';
-
 		// Add Section for Theme Colors.
 		$wp_customize->add_section( 'gambit_pro_section_colors', array(
 			'title'    => __( 'Theme Colors', 'gambit-pro' ),
@@ -188,7 +185,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[navi_primary_color]', array(
 			'default'           => $default_options['navi_primary_color'],
 			'type'              => 'option',
-			'transport'         => $transport,
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -204,7 +201,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[navi_secondary_color]', array(
 			'default'           => $default_options['navi_secondary_color'],
 			'type'              => 'option',
-			'transport'         => $transport,
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -220,7 +217,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[content_primary_color]', array(
 			'default'           => $default_options['content_primary_color'],
 			'type'              => 'option',
-			'transport'         => $transport,
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -236,7 +233,7 @@ class Gambit_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'gambit_theme_options[content_secondary_color]', array(
 			'default'           => $default_options['content_secondary_color'],
 			'type'              => 'option',
-			'transport'         => $transport,
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -279,25 +276,6 @@ class Gambit_Pro_Custom_Colors {
 				'priority' => 7,
 			)
 		) );
-
-		// Add support for selective refresh.
-		if ( isset( $wp_customize->selective_refresh ) ) {
-
-			$wp_customize->selective_refresh->add_partial( 'gambit_pro_custom_colors', array(
-				'selector'            => '#gambit-pro-custom-colors-css',
-				'container_inclusive' => false,
-				'render_callback'     => array( __CLASS__, 'custom_colors_css' ),
-				'settings'            => array(
-					'gambit_theme_options[top_navi_color]',
-					'gambit_theme_options[navi_primary_color]',
-					'gambit_theme_options[navi_secondary_color]',
-					'gambit_theme_options[content_primary_color]',
-					'gambit_theme_options[content_secondary_color]',
-					'gambit_theme_options[widget_title_color]',
-					'gambit_theme_options[footer_color]',
-				),
-			) );
-		}
 	}
 
 	/**
