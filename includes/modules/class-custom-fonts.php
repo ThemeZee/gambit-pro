@@ -212,7 +212,7 @@ class Gambit_Pro_Custom_Fonts {
 		// Add Section for Theme Fonts.
 		$wp_customize->add_section( 'gambit_pro_section_typography', array(
 			'title'    => __( 'Typography', 'gambit-pro' ),
-			'priority' => 70,
+			'priority' => 80,
 			'panel'    => 'gambit_options_panel',
 		) );
 

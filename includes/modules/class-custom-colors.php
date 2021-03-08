@@ -158,7 +158,7 @@ class Gambit_Pro_Custom_Colors {
 		// Add Section for Theme Colors.
 		$wp_customize->add_section( 'gambit_pro_section_colors', array(
 			'title'    => __( 'Theme Colors', 'gambit-pro' ),
-			'priority' => 60,
+			'priority' => 70,
 			'panel'    => 'gambit_options_panel',
 		) );
 
