@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gambit Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2021-02-11 16:17+0100\n"
+"POT-Creation-Date: 2021-03-09 14:42+0100\n"
 "PO-Revision-Date: 2016-08-15 15:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: gambit-pro.php:206
+#: gambit-pro.php:236
 msgid "Settings"
 msgstr ""
 
@@ -162,41 +162,85 @@ msgctxt "default font button"
 msgid "Default"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:356
+#: includes/modules/class-block-colors.php:136
+msgid "Block Colors"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:153
+msgctxt "Color Option"
+msgid "Primary"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:169
+msgctxt "Color Option"
+msgid "Secondary"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:185
+msgctxt "Color Option"
+msgid "Tertiary"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:201
+msgctxt "Color Option"
+msgid "Accent"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:217
+msgctxt "Color Option"
+msgid "Highlight"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:233
+msgctxt "Color Option"
+msgid "Light Gray"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:249
+msgctxt "Color Option"
+msgid "Gray"
+msgstr ""
+
+#: includes/modules/class-block-colors.php:265
+msgctxt "Color Option"
+msgid "Dark Gray"
+msgstr ""
+
+#: includes/modules/class-custom-colors.php:160
 msgid "Theme Colors"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:373
+#: includes/modules/class-custom-colors.php:177
 msgctxt "color setting"
 msgid "Top Navigation"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:389
+#: includes/modules/class-custom-colors.php:193
 msgctxt "color setting"
 msgid "Navigation (primary)"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:405
+#: includes/modules/class-custom-colors.php:209
 msgctxt "color setting"
 msgid "Navigation (secondary)"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:421
+#: includes/modules/class-custom-colors.php:225
 msgctxt "color setting"
 msgid "Content (primary)"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:437
+#: includes/modules/class-custom-colors.php:241
 msgctxt "color setting"
 msgid "Content (secondary)"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:453
+#: includes/modules/class-custom-colors.php:257
 msgctxt "color setting"
 msgid "Widget Titles"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:469
+#: includes/modules/class-custom-colors.php:273
 msgctxt "color setting"
 msgid "Footer"
 msgstr ""
