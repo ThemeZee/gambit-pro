@@ -2,6 +2,12 @@
 Gambit Pro Changelog
 ===================================
 
+Version 1.8
+-----------------------------------
+* added CSS variables for colors
+* updated color settings to support CSS variables
+* added block color palette options
+
 Version 1.7
 -----------------------------------
 * added CSS variables for font styles
