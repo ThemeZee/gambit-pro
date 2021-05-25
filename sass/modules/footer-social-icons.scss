@@ -10,17 +10,17 @@
 
 .site-footer .social-icons-menu li a {
 	padding: 1em;
-}
-
-.site-footer .social-icons-menu li a::before {
-	text-decoration: none;
-	font-size: 18px;
 	@include color(--footer-link-color);
 }
 
-.site-footer .social-icons-menu li a:hover::before {
-	@include color(--footer-link-hover-color);
-	text-decoration: none;
+.site-footer .social-icons-navigation .social-icons-menu li a:hover,
+.site-footer .social-icons-navigation .social-icons-menu li a:active {
+	background: none;
+}
+
+.site-footer .social-icons-navigation .social-icons-menu li a:hover .icon,
+.site-footer .social-icons-navigation .social-icons-menu li a:active .icon {
+	@include fill(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 40em) {

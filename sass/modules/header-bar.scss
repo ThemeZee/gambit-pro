@@ -16,24 +16,6 @@
 	margin-left: auto;
 }
 
-.header-bar .social-icons-menu li a {
-	padding: 0.7em;
-}
-
-.header-bar .social-icons-menu li a::before {
-	font-size: 18px;
-	@include color(--header-bar-link-color);
-}
-
-.header-bar .social-icons-menu li a:hover::before {
-	text-decoration: none;
-}
-
-.header-bar .social-icons-menu li a:hover,
-.header-bar .social-icons-menu li a:active {
-	@include background(--header-bar-link-bg-color);
-}
-
 /* Secondary Navigation */
 .secondary-navigation {
 	position: relative;
