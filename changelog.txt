@@ -2,6 +2,11 @@
 Gambit Pro Changelog
 ===================================
 
+Version 1.9
+-----------------------------------
+* added svg icons for social icons menu
+* added svg icons for scroll to top button
+
 Version 1.8
 -----------------------------------
 * added CSS variables for colors
