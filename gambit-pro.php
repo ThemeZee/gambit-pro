@@ -117,6 +117,7 @@ class Gambit_Pro {
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/modules/class-header-bar.php';
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/modules/class-header-spacing.php';
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/modules/class-scroll-to-top.php';
+		require_once GAMBIT_PRO_PLUGIN_DIR . 'includes/modules/class-widget-areas.php';
 
 		// Include Magazine Widgets.
 		require_once GAMBIT_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-posts-horizontal-box.php';

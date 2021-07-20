@@ -29,7 +29,7 @@ class Gambit_Pro_Footer_Line {
 		}
 
 		// Display footer navigation.
-		add_action( 'gambit_before_footer', array( __CLASS__, 'display_footer_navigation' ), 20 );
+		add_action( 'gambit_before_footer', array( __CLASS__, 'display_footer_navigation' ), 40 );
 
 		// Remove default footer text function and replace it with new one.
 		remove_action( 'gambit_footer_text', 'gambit_footer_text' );

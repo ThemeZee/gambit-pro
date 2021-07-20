@@ -28,7 +28,7 @@ class Gambit_Pro_Footer_Widgets {
 		}
 
 		// Display footer widgets.
-		add_action( 'gambit_before_footer', array( __CLASS__, 'display_widgets' ) );
+		add_action( 'gambit_before_footer', array( __CLASS__, 'display_widgets' ), 30 );
 
 	}
 
