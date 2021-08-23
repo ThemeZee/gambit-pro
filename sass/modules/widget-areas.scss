@@ -1,0 +1,25 @@
+.before-header-widget-area,
+.after-header-widget-area,
+.before-footer-widget-area {
+	padding: 2em 2em 1px;
+	@include background(--page-background-color);
+}
+
+.before-header-widget-area,
+.after-header-widget-area {
+	border-bottom: 1px solid;
+	@include border-color(--light-border-color);
+}
+
+.before-footer-widget-area {
+	border-top: 1px solid;
+	@include border-color(--light-border-color);
+}
+
+@media only screen and (max-width: 80em) {
+	.before-header-widget-area,
+	.after-header-widget-area,
+	.before-footer-widget-area {
+		padding: 1.5em 1.5em 1px;
+	}
+}
