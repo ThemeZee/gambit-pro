@@ -5,14 +5,14 @@ Plugin URI: http://themezee.com/addons/gambit-pro/
 Description: Adds additional features like custom colors, google fonts, widget areas and footer copyright to the Gambit theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 2.0.1
+Version: 2.0.2
 Text Domain: gambit-pro
 Domain Path: /languages/
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Gambit Pro
-Copyright(C) 2021, ThemeZee.com - support@themezee.com
+Copyright(C) 2022, ThemeZee.com - support@themezee.com
 
 */
 
@@ -63,7 +63,7 @@ class Gambit_Pro {
 		define( 'GAMBIT_PRO_NAME', 'Gambit Pro' );
 
 		// Define Version Number.
-		define( 'GAMBIT_PRO_VERSION', '2.0.1' );
+		define( 'GAMBIT_PRO_VERSION', '2.0.2' );
 
 		// Define Plugin Name.
 		define( 'GAMBIT_PRO_PRODUCT_ID', 73300 );
