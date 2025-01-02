@@ -1,6 +1,8 @@
+@use "../_mixins";
+
 .site-footer-wrap {
 	border-top: 4px solid;
-	@include border-color(--footer-light-background-color);
+	@include mixins.border-color(--footer-light-background-color);
 }
 
 .site-footer .social-icons-navigation {
@@ -10,7 +12,7 @@
 
 .site-footer .social-icons-menu li a {
 	padding: 1em;
-	@include color(--footer-link-color);
+	@include mixins.color(--footer-link-color);
 }
 
 .site-footer .social-icons-navigation .social-icons-menu li a:hover,
@@ -20,7 +22,7 @@
 
 .site-footer .social-icons-navigation .social-icons-menu li a:hover .icon,
 .site-footer .social-icons-navigation .social-icons-menu li a:active .icon {
-	@include fill(--footer-link-hover-color);
+	@include mixins.fill(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 40em) {

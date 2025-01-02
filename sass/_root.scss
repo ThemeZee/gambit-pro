@@ -1,9 +1,12 @@
+@use "_mixins";
+@use "_variables";
+
 :root {
-	@include variable(--header-bar-background-color, $themeColors);
-	@include variable(--header-bar-link-color, $themeColors);
-	@include variable(--header-bar-link-hover-color, $themeColors);
-	@include variable(--header-bar-link-bg-color, $themeColors);
-	@include variable(--header-bar-border-color, $themeColors);
-	@include variable(--footer-light-background-color, $themeColors);
-	@include variable(--footer-medium-background-color, $themeColors);
+	@include mixins.variable(--header-bar-background-color, variables.$themeColors);
+	@include mixins.variable(--header-bar-link-color, variables.$themeColors);
+	@include mixins.variable(--header-bar-link-hover-color, variables.$themeColors);
+	@include mixins.variable(--header-bar-link-bg-color, variables.$themeColors);
+	@include mixins.variable(--header-bar-border-color, variables.$themeColors);
+	@include mixins.variable(--footer-light-background-color, variables.$themeColors);
+	@include mixins.variable(--footer-medium-background-color, variables.$themeColors);
 }

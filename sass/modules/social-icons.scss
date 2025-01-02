@@ -1,3 +1,5 @@
+@use "../_mixins";
+
 .social-icons-navigation .social-icons-menu {
 	display: flex;
 	flex-flow: row wrap;
@@ -18,12 +20,12 @@
 	display: flex;
 	margin: 0;
 	padding: 0.75rem;
-	@include color(--header-bar-link-color);
+	@include mixins.color(--header-bar-link-color);
 }
 
 .social-icons-navigation .social-icons-menu li a:hover,
 .social-icons-navigation .social-icons-menu li a:active {
-	@include background(--header-bar-link-bg-color);
+	@include mixins.background(--header-bar-link-bg-color);
 	text-decoration: none;
 }
 

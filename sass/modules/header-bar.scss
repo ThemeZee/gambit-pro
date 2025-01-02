@@ -1,8 +1,10 @@
+@use "../_mixins";
+
 .header-bar-wrap {
 	position: relative;
 	padding: 0 0.5em;
-	@include background(--header-bar-background-color);
-	@include color(--header-bar-link-color);
+	@include mixins.background(--header-bar-background-color);
+	@include mixins.color(--header-bar-link-color);
 }
 
 .header-bar {
@@ -41,12 +43,12 @@
 	padding: 0.75em;
 	border: none;
 	background: none;
-	@include color(--header-bar-link-color);
+	@include mixins.color(--header-bar-link-color);
 	text-decoration: none;
-	@include font-size(13);
-	@include font-family(--navi-font);
-	@include font-weight(--navi-font-weight);
-	@include text-transform(--navi-text-transform);
+	@include mixins.font-size(13);
+	@include mixins.font-family(--navi-font);
+	@include mixins.font-weight(--navi-font-weight);
+	@include mixins.text-transform(--navi-text-transform);
 	text-align: left;
 	align-items: center;
 }
@@ -57,13 +59,13 @@
 
 .secondary-menu-toggle:focus {
 	outline: thin dotted;
-	@include color(--header-bar-link-color);
+	@include mixins.color(--header-bar-link-color);
 	background: none;
 }
 
 .secondary-menu-toggle:hover,
 .secondary-menu-toggle:active {
-	@include background(--header-bar-link-bg-color);
+	@include mixins.background(--header-bar-link-bg-color);
 	cursor: pointer;
 }
 
@@ -72,7 +74,7 @@
 	width: 18px;
 	height: 18px;
 	vertical-align: top;
-	@include fill(--header-bar-link-color);
+	@include mixins.fill(--header-bar-link-color);
 }
 
 .secondary-menu-toggle[aria-expanded="true"] .icon-menu,
@@ -88,12 +90,12 @@
 .top-navigation ul {
 	margin: 0;
 	padding: 0;
-	@include color(--header-bar-link-color);
+	@include mixins.color(--header-bar-link-color);
 	list-style: none;
-	@include font-size(13);
-	@include font-family(--navi-font);
-	@include font-weight(--navi-font-weight);
-	@include text-transform(--navi-text-transform);
+	@include mixins.font-size(13);
+	@include mixins.font-family(--navi-font);
+	@include mixins.font-weight(--navi-font-weight);
+	@include mixins.text-transform(--navi-text-transform);
 }
 
 .top-navigation ul li {
@@ -106,21 +108,21 @@
 	margin: 0;
 	padding: 1em 1.25em;
 	border-top: 1px solid;
-	@include border-color(--header-bar-border-color);
+	@include mixins.border-color(--header-bar-border-color);
 	text-decoration: none;
 }
 
 .top-navigation ul a,
 .top-navigation ul a:link,
 .top-navigation ul a:visited {
-	@include color(--header-bar-link-color);
+	@include mixins.color(--header-bar-link-color);
 	text-decoration: none;
 }
 
 .top-navigation ul a:hover,
 .top-navigation ul a:active,
 .top-navigation ul a:focus {
-	@include background(--header-bar-link-bg-color);
+	@include mixins.background(--header-bar-link-bg-color);
 }
 
 .top-navigation ul li.current-menu-item > a {
@@ -129,7 +131,7 @@
 
 /* Submenus */
 .top-navigation ul ul {
-	@include font-size(13);
+	@include mixins.font-size(13);
 }
 
 .is-amp-page .top-navigation ul button.toggled-on + ul,
@@ -164,7 +166,7 @@
 
 .top-navigation .dropdown-toggle:focus {
 	outline: thin dotted;
-	@include color(--header-bar-link-color);
+	@include mixins.color(--header-bar-link-color);
 	background: none;
 }
 
@@ -178,12 +180,12 @@
 	width: 18px;
 	height: 18px;
 	vertical-align: top;
-	@include fill(--header-bar-link-color);
+	@include mixins.fill(--header-bar-link-color);
 }
 
 .top-navigation .dropdown-toggle:hover .icon,
 .top-navigation .dropdown-toggle:active .icon {
-	@include fill(--header-bar-link-hover-color);
+	@include mixins.fill(--header-bar-link-hover-color);
 }
 
 .top-navigation .dropdown-toggle.toggled-on .icon {
@@ -205,7 +207,7 @@
 	.top-navigation ul,
 	.top-navigation ul ul {
 		display: block;
-		@include font-size(12);
+		@include mixins.font-size(12);
 	}
 
 	.secondary-navigation {
@@ -233,7 +235,7 @@
 		left: -999em;
 		top: 100%;
 		z-index: 99999;
-		@include background(--header-bar-background-color);
+		@include mixins.background(--header-bar-background-color);
 	}
 
 	.top-navigation ul li:hover > ul,
@@ -267,11 +269,11 @@
 	.top-navigation .menu-item-has-children > a::after {
 		display: inline-block;
 		margin: 0.15em 0 0 0.4em;
-		@include color(--header-bar-link-color);
+		@include mixins.color(--header-bar-link-color);
 		content: "\00BB";
 		vertical-align: top;
 		text-decoration: inherit;
-		@include font-size(14);
+		@include mixins.font-size(14);
 		line-height: 1;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;

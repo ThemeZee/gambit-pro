@@ -1,11 +1,13 @@
+@use "../_mixins";
+
 .footer-navigation-wrap {
 	margin-bottom: -4px;
-	@include background(--footer-background-color);
+	@include mixins.background(--footer-background-color);
 }
 
 .footer-navigation-background {
 	margin-bottom: -4px;
-	@include background(--footer-light-background-color);
+	@include mixins.background(--footer-light-background-color);
 }
 
 .footer-navigation {
@@ -16,7 +18,7 @@
 	display: inline-block;
 	margin: 0 0 0 1em;
 	padding: 0.75em 0;
-	@include color(--footer-text-color);
+	@include mixins.color(--footer-text-color);
 	font-weight: bold;
 	font-size: 13px;
 	font-size: 0.8125rem;
@@ -54,12 +56,12 @@
 
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
-	@include color(--footer-link-color);
+	@include mixins.color(--footer-link-color);
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	@include background(--footer-medium-background-color);
+	@include mixins.background(--footer-medium-background-color);
 }
 
 @media only screen and (max-width: 60em) {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Gambit Pro CSS
  *
@@ -111,12 +112,12 @@
 	fill: var(--header-bar-link-color);
 }
 
-.secondary-menu-toggle[aria-expanded="true"] .icon-menu,
-.secondary-menu-toggle[aria-expanded="false"] .icon-close {
+.secondary-menu-toggle[aria-expanded=true] .icon-menu,
+.secondary-menu-toggle[aria-expanded=false] .icon-close {
 	display: none;
 }
 
-.secondary-menu-toggle[aria-expanded="true"] .icon-close {
+.secondary-menu-toggle[aria-expanded=true] .icon-close {
 	display: inline-block;
 }
 
@@ -319,7 +320,7 @@
 		margin: 0.15em 0 0 0.4em;
 		color: #fff;
 		color: var(--header-bar-link-color);
-		content: "\00BB";
+		content: "»";
 		vertical-align: top;
 		text-decoration: inherit;
 		font-size: 14px;
@@ -329,7 +330,6 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 }
-
 /*--------------------------------------------------------------
 # Social Icons
 --------------------------------------------------------------*/
@@ -408,7 +408,6 @@
 		padding: 1.5em 1.5em 1px;
 	}
 }
-
 /*--------------------------------------------------------------
 # Magazine Widgets
 --------------------------------------------------------------*/
@@ -471,32 +470,27 @@
 		display: none;
 	}
 }
-
 @media only screen and (max-width: 65em) {
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content {
 		display: none;
 	}
 }
-
 @media only screen and (max-width: 55em) {
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content,
 	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link {
 		display: inline-block;
 	}
 }
-
 @media only screen and (max-width: 50em) {
 	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link {
 		display: none;
 	}
 }
-
 @media only screen and (max-width: 45em) {
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content {
 		display: none;
 	}
 }
-
 @media only screen and (max-width: 40em) {
 	.widget-magazine-posts .magazine-horizontal-box .large-post .wp-post-image,
 	.widget-magazine-posts .magazine-vertical-box .large-post {
@@ -518,7 +512,6 @@
 		width: 50%;
 	}
 }
-
 @media only screen and (max-width: 35em) {
 	.widget-magazine-posts .magazine-horizontal-box .medium-posts {
 		margin-right: 0;
@@ -528,7 +521,6 @@
 		display: none;
 	}
 }
-
 @media only screen and (max-width: 30em) {
 	.widget-magazine-posts .magazine-horizontal-box .large-post .post-content {
 		float: none;
@@ -540,14 +532,12 @@
 		display: inline-block;
 	}
 }
-
 @media only screen and (max-width: 25em) {
 	.widget-magazine-posts-list .type-post .entry-title {
 		font-size: 18px;
 		font-size: 1.125rem;
 	}
 }
-
 @media only screen and (max-width: 20em) {
 	.widget-magazine-posts-list .type-post .entry-title {
 		font-size: 16px;
@@ -558,7 +548,6 @@
 		display: none;
 	}
 }
-
 /*--------------------------------------------------------------
 # Footer Widgets
 --------------------------------------------------------------*/
@@ -622,7 +611,6 @@
 		padding-right: 1.5em;
 	}
 }
-
 @media only screen and (max-width: 65em) {
 	.footer-widget-column {
 		width: 50%;
@@ -632,7 +620,6 @@
 		clear: left;
 	}
 }
-
 @media only screen and (max-width: 35em) {
 	.footer-widgets {
 		margin-right: 0;
@@ -644,7 +631,6 @@
 		width: 100%;
 	}
 }
-
 /*--------------------------------------------------------------
 # Footer Menu
 --------------------------------------------------------------*/
@@ -740,13 +726,11 @@
 		max-width: 80%;
 	}
 }
-
 @media only screen and (max-width: 50em) {
 	.site-footer .site-info {
 		max-width: 60%;
 	}
 }
-
 @media only screen and (max-width: 40em) {
 	.footer-navigation-menu li {
 		display: block;
@@ -759,7 +743,6 @@
 		max-width: 100%;
 	}
 }
-
 @media only screen and (min-width: 85em) {
 	.wide-layout .footer-navigation {
 		padding: 0;
@@ -769,7 +752,6 @@
 		margin: 0;
 	}
 }
-
 /*--------------------------------------------------------------
 # Footer Social Menu
 --------------------------------------------------------------*/
@@ -807,13 +789,11 @@
 		margin: 0 1em 1em;
 	}
 }
-
 @media only screen and (min-width: 85em) {
 	.wide-layout .site-footer .social-icons-navigation {
 		margin: 0.25em 0 0;
 	}
 }
-
 /*--------------------------------------------------------------
 # Scroll to Top Button
 --------------------------------------------------------------*/
